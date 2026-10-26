@@ -1,0 +1,1409 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Matheus Rossine</title>
+<meta name="description" content="Portfólio de Matheus Rossine — Publicidade, Fotografia, Audiovisual e Design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap">
+<style>
+/* Layout: uma coluna narrativa que muda de clima — capa "estúdio de criação" (grade azul, ferramentas animadas, vidro) → infância (papel quadriculado, rabiscos) → editorial → portfólio por cor de seção. */
+:root{
+  color-scheme: light;
+  --white:#FBFCFE;
+  --paper:#F6F8FB;
+  --ink:#0C1220;
+  --ink-2:#4A5468;
+  --ink-3:#8A93A6;
+  --blue:#1E4FE6;
+  --blue-2:#1238B8;
+  --sky:#BFE1F7;
+  --sky-bg:#E2F0FB;
+  --sky-deep:#3E8FD0;
+  --orange:#FF6F1A;
+  --orange-ink:#2B1103;
+  --navy:#0A1A3A;
+  --night:#07090F;
+  --glass-brd:rgba(255,255,255,.7);
+  --glass-shadow:0 10px 40px -12px rgba(12,18,32,.25);
+  --f-sans:"Poppins",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --f-hand:"Caveat","Segoe Print","Bradley Hand","Comic Sans MS",cursive;
+  --page-bg:var(--blue);
+  --page-fg:#fff;
+  --gutter:clamp(16px,4vw,56px);
+  --maxw:1320px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{
+  margin:0;font-family:var(--f-sans);font-weight:400;font-size:16px;line-height:1.65;
+  background:var(--page-bg);color:var(--page-fg);
+  transition:background-color 1s var(--ease),color .8s var(--ease);
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+body[data-bg="blue"]{--page-bg:var(--blue);--page-fg:#fff}
+body[data-bg="white"]{--page-bg:var(--white);--page-fg:var(--ink)}
+body[data-bg="paper"]{--page-bg:var(--paper);--page-fg:var(--ink)}
+body[data-bg="sky"]{--page-bg:var(--sky-bg);--page-fg:var(--navy)}
+body[data-bg="orange"]{--page-bg:var(--orange);--page-fg:var(--orange-ink)}
+body[data-bg="navy"]{--page-bg:var(--navy);--page-fg:#F2F5FB}
+body[data-bg="night"]{--page-bg:var(--night);--page-fg:#F2F5FB}
+img,video{max-width:100%;height:auto;display:block}
+a{color:inherit}
+::selection{background:var(--orange);color:#fff}
+:focus-visible{outline:2px solid var(--sky-deep);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
+.label{font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase}
+.muted{opacity:.62}
+h1,h2,h3{margin:0;line-height:.95;text-wrap:balance}
+p{margin:0}
+.lead{font-size:clamp(1.05rem,1.4vw,1.25rem);font-weight:300;line-height:1.7;max-width:62ch}
+img[data-src]{background:rgba(10,26,58,.06)}
+main{overflow-x:clip}
+
+/* ---------- Liquid glass ---------- */
+.glass{
+  position:relative;
+  background:linear-gradient(135deg,rgba(255,255,255,.55),rgba(255,255,255,.18));
+  -webkit-backdrop-filter:blur(22px) saturate(180%);backdrop-filter:blur(22px) saturate(180%);
+  border:1px solid var(--glass-brd);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),inset 0 -1px 1px rgba(12,18,32,.06),var(--glass-shadow);
+  isolation:isolate;
+}
+.glass::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;
+  background:radial-gradient(120% 60% at 20% 0%,rgba(255,255,255,.65),transparent 55%);opacity:.7;
+}
+.glass.dark{
+  background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.04));
+  border-color:rgba(255,255,255,.24);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.3),var(--glass-shadow);color:#fff;
+}
+.glass.dark::before{opacity:.22}
+
+/* ---------- App icons ---------- */
+.app{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:7px;flex:none;overflow:hidden;box-shadow:0 2px 6px -2px rgba(0,0,0,.35),inset 0 0 0 1px rgba(255,255,255,.08)}
+.app svg{width:100%;height:100%;display:block}
+.app.sm{width:22px;height:22px;border-radius:6px}
+
+/* ---------- Navegação desktop ---------- */
+.nav{
+  position:fixed;z-index:50;left:50%;top:calc(env(safe-area-inset-top,0px) + 16px);transform:translateX(-50%);
+  display:flex;align-items:center;gap:4px;padding:6px;border-radius:999px;
+  transition:transform .6s var(--ease),opacity .4s;
+}
+.nav .brand{font-weight:700;font-size:.82rem;letter-spacing:.02em;padding:8px 14px 8px 16px;text-decoration:none;white-space:nowrap;color:var(--ink)}
+.nav a.item{text-decoration:none;font-size:.82rem;font-weight:500;padding:8px 14px;border-radius:999px;color:var(--ink-2);transition:color .3s,background .3s;white-space:nowrap}
+.nav a.item:hover{color:var(--ink);background:rgba(255,255,255,.55)}
+.nav a.item.active{color:#fff;background:var(--ink)}
+.nav.hide{transform:translate(-50%,-150%);opacity:0}
+body.darknav .nav{background:linear-gradient(135deg,rgba(255,255,255,.2),rgba(255,255,255,.06));border-color:rgba(255,255,255,.28)}
+body.darknav .nav .brand{color:#fff}
+body.darknav .nav a.item{color:rgba(255,255,255,.78)}
+body.darknav .nav a.item.active{background:#fff;color:var(--navy)}
+body.darknav .nav a.item:hover{background:rgba(255,255,255,.14);color:#fff}
+.progress{position:fixed;left:0;top:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);z-index:60;background:linear-gradient(90deg,var(--sky),var(--orange),var(--navy))}
+
+/* ---------- Navegação mobile (barra no topo + menu em tela cheia) ---------- */
+.mbar,.mmenu{display:none}
+@media (max-width:860px){
+  .nav{display:none}
+  .mbar{
+    display:flex;position:fixed;z-index:70;left:12px;right:12px;top:calc(env(safe-area-inset-top,0px) + 10px);
+    align-items:center;justify-content:space-between;gap:10px;padding:6px 6px 6px 16px;border-radius:999px;color:var(--ink);
+    transition:background .5s,border-color .5s,color .5s;
+  }
+  .mbar .b{font-weight:700;font-size:.9rem;text-decoration:none;white-space:nowrap}
+  .mbar .cur{font-size:.66rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;opacity:.7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1;text-align:center}
+  .mbar button{font:inherit;font-size:.8rem;font-weight:600;border:0;border-radius:999px;padding:9px 16px;background:var(--ink);color:#fff;cursor:pointer;flex:none;min-width:74px}
+  body.darknav .mbar{color:#fff;background:linear-gradient(135deg,rgba(255,255,255,.2),rgba(255,255,255,.06));border-color:rgba(255,255,255,.28)}
+  body.darknav .mbar button{background:#fff;color:var(--navy)}
+  .mmenu{
+    display:flex;flex-direction:column;justify-content:center;position:fixed;inset:0;z-index:65;
+    padding:calc(env(safe-area-inset-top,0px) + 90px) 24px calc(env(safe-area-inset-bottom,0px) + 40px);
+    background:rgba(8,14,30,.55);-webkit-backdrop-filter:blur(26px) saturate(160%);backdrop-filter:blur(26px) saturate(160%);
+    opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility 0s linear .4s;
+  }
+  .mmenu.open{opacity:1;visibility:visible;transition:opacity .4s var(--ease)}
+  .mmenu a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;color:#fff;text-decoration:none;font-weight:700;font-size:clamp(1.9rem,9vw,2.6rem);line-height:1.15;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.14);transform:translateY(14px);opacity:0;transition:transform .5s var(--ease),opacity .5s}
+  .mmenu.open a{transform:none;opacity:1}
+  .mmenu a span{font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;opacity:.55}
+  .mmenu a:nth-child(2){transition-delay:.04s}.mmenu a:nth-child(3){transition-delay:.08s}.mmenu a:nth-child(4){transition-delay:.12s}.mmenu a:nth-child(5){transition-delay:.16s}.mmenu a:nth-child(6){transition-delay:.2s}
+}
+
+/* ---------- Reveal ---------- */
+.rv{transition:opacity 1.1s var(--ease),transform 1.1s var(--ease),filter 1.1s var(--ease)}
+.rv.pre{opacity:0;transform:translateY(38px)}
+.rv.pre.fromR{transform:translateX(50px)}
+.rv.pre.zoom{transform:scale(.94)}
+.rv.pre.blur{filter:blur(10px)}
+
+/* ---------- 01 HERO: estúdio de criação ---------- */
+.hero{position:relative;height:max(660px,100svh);overflow:hidden;color:#fff;background:var(--blue);isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.mesh{position:absolute;inset:-20%;filter:blur(60px);opacity:.95}
+.mesh i{position:absolute;border-radius:50%;will-change:transform}
+.mesh .m1{width:60vmax;height:60vmax;left:-10%;top:-20%;background:radial-gradient(circle,#4F8BFF 0%,transparent 65%);animation:drift1 18s ease-in-out infinite alternate}
+.mesh .m2{width:55vmax;height:55vmax;right:-15%;top:10%;background:radial-gradient(circle,#0B2A9A 0%,transparent 65%);animation:drift2 22s ease-in-out infinite alternate}
+.mesh .m3{width:40vmax;height:40vmax;left:35%;bottom:-25%;background:radial-gradient(circle,rgba(255,111,26,.55) 0%,transparent 65%);animation:drift3 16s ease-in-out infinite alternate}
+.mesh .m4{width:38vmax;height:38vmax;left:15%;top:30%;background:radial-gradient(circle,rgba(191,225,247,.55) 0%,transparent 65%);animation:drift2 20s ease-in-out infinite alternate-reverse}
+@keyframes drift1{to{transform:translate(18vw,14vh) scale(1.15)}}
+@keyframes drift2{to{transform:translate(-16vw,-10vh) scale(.9)}}
+@keyframes drift3{to{transform:translate(-22vw,-18vh) scale(1.2)}}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.14) 1px,transparent 1px);background-size:64px 64px;background-position:center center;-webkit-mask-image:radial-gradient(120% 90% at 50% 45%,#000 55%,transparent 100%);mask-image:radial-gradient(120% 90% at 50% 45%,#000 55%,transparent 100%)}
+.beam{position:absolute;inset:-30% -60%;background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.16) 48%,rgba(255,255,255,.04) 53%,transparent 58%);animation:beam 9s ease-in-out infinite}
+@keyframes beam{0%{transform:translateX(-30%)}60%,100%{transform:translateX(30%)}}
+.grain{position:absolute;inset:0;opacity:.18;mix-blend-mode:overlay;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* lentes de vidro líquido */
+.lens{position:absolute;z-index:1;border-radius:50%;pointer-events:none;
+  background:linear-gradient(140deg,rgba(255,255,255,.28),rgba(255,255,255,.04) 45%,rgba(255,255,255,.12));
+  -webkit-backdrop-filter:blur(14px) saturate(170%) brightness(1.08);backdrop-filter:blur(14px) saturate(170%) brightness(1.08);
+  border:1px solid rgba(255,255,255,.45);
+  box-shadow:inset 0 2px 1px rgba(255,255,255,.55),inset 0 -8px 24px rgba(255,255,255,.12),inset 8px 0 20px rgba(191,225,247,.18),0 30px 60px -30px rgba(3,10,40,.6);
+  will-change:transform}
+.lens::after{content:"";position:absolute;left:14%;top:9%;width:36%;height:22%;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.55),transparent);filter:blur(2px);transform:rotate(-24deg)}
+.lens.l1{width:clamp(180px,26vw,380px);aspect-ratio:1;left:6%;top:14%;animation:float1 14s ease-in-out infinite}
+.lens.l2{width:clamp(110px,14vw,210px);aspect-ratio:1;right:10%;bottom:14%;animation:float2 11s ease-in-out infinite}
+.lens.l3{width:clamp(220px,20vw,300px);height:clamp(80px,7vw,110px);border-radius:999px;right:24%;top:10%;animation:float3 16s ease-in-out infinite}
+@keyframes float1{50%{transform:translate(40px,30px) rotate(8deg)}}
+@keyframes float2{50%{transform:translate(-30px,-40px)}}
+@keyframes float3{50%{transform:translate(-50px,24px)}}
+
+.stage{position:absolute;inset:0;z-index:2}
+.hname{font-weight:800;text-transform:lowercase;letter-spacing:-.035em;line-height:.8;font-size:clamp(4.6rem,17.5vw,19rem);margin:0;color:#fff}
+.hname .w{position:absolute;display:block;white-space:nowrap}
+.hname .w .ch{display:inline-block;transform:translateY(110%);opacity:0;animation:rise 1.1s var(--ease) forwards}
+@keyframes rise{to{transform:none;opacity:1}}
+.w1{left:50%;top:15%;transform:translateX(-58%);z-index:1}
+.w2{left:50%;top:52%;transform:translateX(-36%);z-index:4;text-shadow:0 10px 40px rgba(3,10,50,.25)}
+.hero-photo{position:absolute;z-index:3;left:50%;bottom:0;height:80%;transform:translateX(-50%);pointer-events:none}
+.hero-photo img{height:100%;width:auto;max-width:none;filter:drop-shadow(0 30px 50px rgba(3,10,50,.35));animation:photoIn 1.4s .2s var(--ease) both}
+@keyframes photoIn{from{opacity:0;transform:translateY(40px) scale(.97)}}
+/* moldura de seleção */
+.selbox{position:absolute;z-index:5;pointer-events:none;border:2px solid #fff;opacity:0;animation:selIn .9s 1.3s var(--ease) forwards}
+.selbox .h{position:absolute;width:14px;height:14px;background:var(--orange);border:2px solid #fff;border-radius:3px}
+.selbox .h:nth-child(1){left:-8px;top:-8px}.selbox .h:nth-child(2){right:-8px;top:-8px}.selbox .h:nth-child(3){left:-8px;bottom:-8px}.selbox .h:nth-child(4){right:-8px;bottom:-8px}
+.selbox .dim{position:absolute;left:50%;bottom:-34px;transform:translateX(-50%);font-size:.66rem;font-weight:600;letter-spacing:.06em;background:var(--orange);color:#fff;padding:3px 8px;border-radius:5px;white-space:nowrap;font-variant-numeric:tabular-nums}
+@keyframes selIn{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
+/* elementos de interface animados */
+.ui{position:absolute;z-index:6}
+.ui-menu{right:clamp(16px,6vw,110px);top:24%;border-radius:18px;padding:8px;display:grid;gap:2px;min-width:230px;opacity:0;animation:popIn .8s 1.6s var(--ease) forwards, bob 7s 2.5s ease-in-out infinite}
+.ui-menu .it{display:grid;grid-template-columns:16px 22px 1fr auto;align-items:center;gap:8px;padding:8px 10px;border-radius:12px;font-size:.88rem;font-weight:500;transition:background .4s}
+.ui-menu .it .ck{opacity:0;transition:opacity .3s}
+.ui-menu .it .k{font-size:.72rem;font-weight:600;opacity:.55}
+.ui-menu .it.on{background:rgba(255,255,255,.14)}
+.ui-menu .it.on .ck{opacity:1}
+.ui-card{left:clamp(16px,5vw,90px);bottom:17%;width:min(300px,40vw);border-radius:18px;padding:14px 14px 10px;opacity:0;animation:popIn .8s 1.9s var(--ease) forwards, bob 8s 3s ease-in-out infinite reverse}
+.ui-card .t{font-weight:700;font-size:.9rem}
+.ui-card .typed{font-size:.85rem;font-weight:300;margin-top:4px;min-height:1.4em;opacity:.9}
+.ui-card .typed::after{content:"";display:inline-block;width:1.5px;height:1em;background:#fff;margin-left:2px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.ui-card .row{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:8px;border-top:1px solid rgba(255,255,255,.18)}
+.ui-card .ico{display:flex;gap:10px;opacity:.8}
+.ui-card .ico svg{width:17px;height:17px}
+.ui-card .send{width:30px;height:30px;border-radius:50%;background:var(--orange);display:grid;place-items:center}
+.cursor{position:absolute;z-index:7;left:0;top:0;pointer-events:none;will-change:transform}
+.cursor svg{width:22px;height:22px;display:block;filter:drop-shadow(0 2px 3px rgba(0,0,0,.25))}
+.cursor .tag{display:inline-block;margin:2px 0 0 16px;padding:4px 10px;border-radius:7px;font-size:.74rem;font-weight:600;white-space:nowrap;color:#fff;box-shadow:0 6px 16px -6px rgba(0,0,0,.35)}
+.cursor.c1{color:var(--orange)}.cursor.c1 .tag{background:var(--orange)}
+.cursor.c2{color:#BFE1F7;opacity:0;transition:opacity .4s}.cursor.c2 .tag{background:#fff;color:var(--blue-2)}
+.cursor.c2.show{opacity:1}
+.toolbar{left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 22px);transform:translateX(-50%);display:flex;align-items:center;gap:2px;padding:6px;border-radius:16px;opacity:0;animation:popInX .8s 2.1s var(--ease) forwards}
+.toolbar .tl{width:40px;height:38px;display:grid;place-items:center;border-radius:10px;transition:background .35s,color .35s;color:rgba(255,255,255,.85)}
+.toolbar .tl svg{width:19px;height:19px}
+.toolbar .tl.on{background:#fff;color:var(--blue-2)}
+.toolbar .sep{width:1px;height:22px;background:rgba(255,255,255,.2);margin-inline:4px}
+@keyframes popIn{from{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes popInX{from{opacity:0;transform:translate(-50%,16px)}to{opacity:1;transform:translateX(-50%)}}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -10px}}
+.hero .meta{position:absolute;z-index:6;font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;line-height:1.6;opacity:0;animation:fadeIn 1s 1.4s forwards}
+.hero .meta.m-l{right:var(--gutter);bottom:calc(env(safe-area-inset-bottom,0px) + 74px);text-align:right}
+.hero .meta.m-r{right:var(--gutter);bottom:calc(env(safe-area-inset-bottom,0px) + 34px);text-align:right}
+.hero .meta b{color:var(--orange);font-weight:700}
+@keyframes fadeIn{to{opacity:.9}}
+.scrollcue{position:absolute;z-index:6;left:var(--gutter);bottom:calc(env(safe-area-inset-bottom,0px) + 30px);display:flex;gap:10px;align-items:center;font-size:.66rem;font-weight:600;letter-spacing:.24em;text-decoration:none;color:#fff;border-radius:999px;padding:10px 16px;opacity:0;animation:fadeIn 1s 2.3s forwards}
+.scrollcue .arr{display:inline-block;animation:down 1.8s ease-in-out infinite}
+@keyframes down{50%{transform:translateY(4px)}}
+
+/* ---------- 02 INFÂNCIA ---------- */
+.kid{position:relative;padding-block:clamp(90px,12vw,170px);background-image:linear-gradient(rgba(62,143,208,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(62,143,208,.09) 1px,transparent 1px);background-size:28px 28px;background-position:center top;color:var(--ink)}
+.kid-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,90px);align-items:center}
+.kid h2{font-weight:800;font-size:clamp(2.3rem,6.2vw,5.4rem);letter-spacing:.01em;text-transform:uppercase}
+.kid h2 .sq{display:inline-block;position:relative;color:var(--orange)}
+.kid h2 .sq svg{position:absolute;left:-4%;bottom:-.18em;width:108%;height:.4em;overflow:visible}
+.kid .story{display:grid;gap:1.1em;margin-top:clamp(26px,3vw,40px)}
+.kid .story p{font-size:clamp(1rem,1.25vw,1.12rem);max-width:56ch}
+.kid .story p:first-child{font-size:clamp(1.15rem,1.7vw,1.45rem);font-weight:500;line-height:1.5}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.chip{font-weight:600;font-size:.92rem;padding:9px 16px;border-radius:999px;cursor:default;transition:transform .5s var(--ease);user-select:none}
+.chip:nth-child(1){background:var(--sky);transform:rotate(-3deg)}
+.chip:nth-child(2){background:#FFD2B5;transform:rotate(2deg)}
+.chip:nth-child(3){background:var(--navy);color:#fff;transform:rotate(-1.5deg)}
+.chip:nth-child(4){background:#FFE9A8;transform:rotate(3deg)}
+.chip:nth-child(5){background:var(--orange);color:#fff;transform:rotate(-2deg)}
+.chip:nth-child(6){background:#fff;border:1.5px dashed var(--ink-3);transform:rotate(1deg)}
+.chip:hover{transform:rotate(0) scale(1.08) translateY(-3px)}
+.polaroid-wrap{position:relative;justify-self:center;width:min(100%,500px)}
+.polaroid{position:relative;margin:0;background:#fff;padding:14px 14px 64px;box-shadow:0 30px 60px -20px rgba(12,18,32,.35),0 2px 6px rgba(12,18,32,.08);transform:rotate(-4deg);transition:transform .8s var(--ease)}
+.polaroid:hover{transform:rotate(-1deg) scale(1.02)}
+.polaroid img{aspect-ratio:4/5;object-fit:cover;object-position:42% 55%;width:100%;height:auto}
+.polaroid .cap{position:absolute;left:0;right:0;bottom:14px;text-align:center;font-family:var(--f-hand);font-size:1.7rem;color:var(--ink-2)}
+.tape{position:absolute;width:120px;height:32px;background:rgba(255,214,120,.62);top:-14px;left:50%;transform:translateX(-50%) rotate(3deg);box-shadow:0 1px 3px rgba(0,0,0,.08);z-index:2}
+.note{position:absolute;font-family:var(--f-hand);font-size:clamp(1.3rem,2vw,1.7rem);color:var(--sky-deep);line-height:1.1;right:-6px;bottom:-60px;transform:rotate(-6deg)}
+.note svg{width:60px;height:auto;display:block;margin-left:-40px;margin-bottom:-4px}
+.doodle{position:absolute;pointer-events:none;color:var(--orange)}
+.draw path,.draw circle{stroke-dasharray:var(--len,600);stroke-dashoffset:var(--len,600);transition:stroke-dashoffset 1.8s var(--ease) .2s}
+.draw.on path,.draw.on circle{stroke-dashoffset:0}
+.kid .d1{left:4%;top:60px;width:70px;animation:wiggle 5s ease-in-out infinite}
+.kid .d2{right:6%;top:40px;width:90px;color:var(--sky-deep)}
+.kid .d3{left:46%;bottom:40px;width:60px;color:var(--navy);animation:wiggle 6s ease-in-out infinite reverse}
+@keyframes wiggle{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg) translateY(-6px)}}
+
+/* ---------- 03 QUEM É ---------- */
+.about{padding-block:clamp(90px,12vw,170px);color:var(--ink)}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,7vw,110px);align-items:end}
+.portrait{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4/5;margin:0;background:radial-gradient(120% 80% at 30% 20%,#E9F5FE 0%,var(--sky) 55%,#7DB8E8 100%)}
+.portrait .gl{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.35) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.35) 1px,transparent 1px);background-size:44px 44px;opacity:.6}
+.portrait img{position:absolute;left:0;bottom:0;width:100%;height:100%;object-fit:cover;object-position:38% 100%;will-change:transform}
+.portrait .tag{position:absolute;left:16px;bottom:16px;border-radius:999px;padding:8px 14px;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);z-index:2}
+.about h2{font-weight:800;font-size:clamp(2.6rem,7.5vw,6.6rem);letter-spacing:.03em;text-transform:uppercase}
+.about h2 span{display:block}
+.about h2 span:last-child{color:transparent;-webkit-text-stroke:1.5px var(--ink)}
+.about .text{display:grid;gap:1.1em;margin-top:32px}
+.roles{list-style:none;padding:0;margin:40px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.roles li{border-radius:20px;padding:18px 20px;display:grid;gap:4px;background:linear-gradient(135deg,rgba(226,240,251,.9),rgba(255,255,255,.4));border:1px solid rgba(62,143,208,.18);transition:transform .5s var(--ease),box-shadow .5s}
+.roles li:hover{transform:translateY(-4px);box-shadow:0 16px 30px -18px rgba(10,26,58,.45)}
+.roles b{font-weight:600;font-size:1rem;line-height:1.3}
+.roles span{font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--sky-deep)}
+.roles li:nth-child(3) span{color:var(--orange)}
+.roles li:nth-child(4) span{color:var(--navy)}
+
+/* ---------- 04 EU ATUAL ---------- */
+.now{padding-block:clamp(90px,12vw,170px);color:var(--ink)}
+.now .top{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:start}
+.now h2{font-weight:700;font-size:clamp(2.2rem,5.4vw,4.8rem);letter-spacing:.01em;text-transform:uppercase}
+.now .text{display:grid;gap:1.1em;padding-top:10px}
+.tools-line{font-weight:800;text-transform:uppercase;font-size:clamp(1.5rem,2.6vw,2.4rem);line-height:1.02;letter-spacing:.005em;text-wrap:balance;margin-top:.1em}
+.tools-line .w{color:rgba(12,18,32,.14);transition:color .5s}
+.tools-line .w.lit{color:var(--ink)}
+.tools-line .w.acc.lit{color:var(--orange)}
+.tools-icons{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
+.tools-icons .ti{display:flex;align-items:center;gap:10px;border-radius:999px;padding:9px 15px 9px 11px;font-size:.84rem;font-weight:500}
+.tools-icons svg{width:20px;height:20px}
+
+/* ---------- 05 SKILLS ---------- */
+.skills{padding-block:clamp(60px,8vw,120px) clamp(80px,10vw,140px);color:var(--ink)}
+.skills-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:clamp(40px,5vw,70px)}
+.skills-head h2{font-weight:800;font-size:clamp(2.6rem,7vw,6rem);letter-spacing:.04em;text-transform:uppercase}
+.stack{display:grid;gap:24px}
+.scard{position:sticky;top:calc(84px + var(--i,0) * 18px);border-radius:32px;padding:clamp(28px,4.5vw,64px);min-height:min(78vh,640px);display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,70px);overflow:hidden;box-shadow:0 -10px 40px -20px rgba(12,18,32,.3)}
+.scard.photo{background:var(--sky-bg);color:var(--navy);--i:0}
+.scard.video{background:var(--orange);color:var(--orange-ink);--i:1}
+.scard.design{background:var(--navy);color:#F2F5FB;--i:2}
+.scard .num{font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;opacity:.7}
+.scard h3{font-weight:800;font-size:clamp(2.4rem,6.6vw,6rem);letter-spacing:.03em;text-transform:uppercase;margin-top:14px}
+.scard .sub{font-size:clamp(1.05rem,1.6vw,1.35rem);font-weight:500;margin-top:16px;max-width:30ch;line-height:1.4}
+.scard .body{margin-top:22px;display:grid;gap:1em;font-weight:300;max-width:52ch}
+.scard .side{display:flex;flex-direction:column;justify-content:space-between;gap:30px;position:relative;z-index:1}
+.tools{border-radius:22px;padding:18px 20px}
+.scard.photo .tools{background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.9)}
+.scard.video .tools{background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.45)}
+.scard.design .tools{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18)}
+.tools .label{opacity:.7}
+.toolset{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.toolset > span{display:inline-flex;align-items:center;gap:8px;font-weight:500;font-size:.88rem;padding:5px 12px 5px 5px;border-radius:999px;background:rgba(255,255,255,.35)}
+.scard.design .toolset > span{background:rgba(255,255,255,.08)}
+.tools .note-s{margin-top:12px;font-size:.8rem;font-weight:300;opacity:.8;line-height:1.5}
+.levels{display:grid;gap:16px}
+.lvl{display:grid;gap:8px}
+.lvl .top{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:.92rem;font-weight:500}
+.lvl .top .nm{display:inline-flex;align-items:center;gap:10px}
+.lvl .top em{font-style:normal;font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;opacity:.75}
+.bar{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.bar i{height:6px;border-radius:6px;background:currentColor;opacity:.14;transform-origin:0 50%;transition:opacity .6s,transform .8s var(--ease)}
+.bar i.on{opacity:1}
+.levels.pre .bar i.on{transform:scaleX(0)}
+.scard .bigmark{position:absolute;right:-2%;bottom:-8%;font-weight:900;font-size:clamp(8rem,22vw,20rem);line-height:1;opacity:.06;pointer-events:none;letter-spacing:-.02em}
+
+/* ---------- 06 QUEBRA ---------- */
+.breaker{position:relative;min-height:max(680px,120svh);color:#fff;overflow:hidden;background:var(--night)}
+.breaker .bg{position:absolute;inset:0}
+.breaker .bg img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;filter:grayscale(1) brightness(.5);transform:scale(1.18);will-change:transform,filter}
+.breaker .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,15,.88) 0%,rgba(7,9,15,.25) 38%,rgba(7,9,15,.3) 62%,rgba(7,9,15,.94) 100%)}
+.breaker .content{position:relative;z-index:2;min-height:inherit;display:grid;grid-template-rows:1fr auto 1fr;padding-block:clamp(90px,12vw,160px)}
+.breaker h2{font-weight:800;font-size:clamp(2.6rem,9vw,9.4rem);letter-spacing:.02em;text-transform:uppercase;line-height:.9;align-self:end}
+.breaker .sec{font-size:clamp(1.3rem,2.6vw,2.2rem);font-weight:300;margin-top:22px}
+.breaker .quote{max-width:46ch;align-self:end}
+.breaker .quote p{font-weight:300;font-size:clamp(1.05rem,1.5vw,1.3rem);opacity:.88;font-style:italic}
+
+/* ---------- Portfólio: comum ---------- */
+.pf{padding-block:clamp(110px,13vw,190px) clamp(60px,8vw,110px)}
+.pf-head{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,5vw,80px);align-items:end;margin-bottom:clamp(60px,8vw,120px)}
+.pf-head h2{font-weight:800;font-size:clamp(3rem,11vw,11rem);letter-spacing:.02em;text-transform:uppercase;line-height:.85}
+.pf-head .aside{display:grid;gap:16px;padding-bottom:.6em;max-width:44ch}
+.pf-head .phrase{font-size:clamp(1.2rem,2vw,1.7rem);font-weight:500;line-height:1.3}
+.pf-head .aside p.body{font-weight:300}
+.proj{margin-top:clamp(80px,10vw,150px)}
+.proj:first-of-type{margin-top:0}
+.proj-bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:10px 30px;border-top:1px solid currentColor;padding-top:18px;margin-bottom:clamp(26px,3vw,40px)}
+.proj-bar h3{font-weight:700;font-size:clamp(1.5rem,3vw,2.6rem);letter-spacing:.06em;text-transform:uppercase}
+.proj-bar .kick{display:block;font-size:.68rem;font-weight:600;letter-spacing:.2em;opacity:.65;margin-bottom:6px}
+.credit{font-size:.74rem;line-height:1.6;letter-spacing:.04em;display:grid;gap:1px;text-align:right}
+.credit b{font-weight:600}
+.credit .eq{opacity:.62}
+figure{margin:0}
+.ph{position:relative;overflow:hidden;border-radius:14px;background:rgba(10,26,58,.08);cursor:zoom-in}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease),opacity .6s}
+.ph img[data-src]{opacity:0}
+.ph:hover img{transform:scale(1.045)}
+.ph figcaption{position:absolute;left:12px;bottom:12px;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;border-radius:999px;color:var(--ink);opacity:0;transform:translateY(6px);transition:.5s var(--ease)}
+.ph:hover figcaption{opacity:1;transform:none}
+
+/* Fotografia */
+.bleed{width:100%;max-width:1600px;margin-inline:auto;padding-inline:var(--gutter)}
+.bleed .ph{border-radius:22px;aspect-ratio:16/8.4}
+.bleed .ph img{height:120%;will-change:transform}
+.cgrid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(10px,1.4vw,20px);margin-top:clamp(10px,1.4vw,20px)}
+.cgrid .ph{aspect-ratio:3/4}
+.c-a{grid-column:1/6}.c-b{grid-column:6/10;margin-top:18%}.c-c{grid-column:10/13;margin-top:4%}
+.c-d{grid-column:2/6;margin-top:-12%}.c-e{grid-column:6/9}.c-f{grid-column:9/13;margin-top:-14%}
+.c-h{grid-column:5/13}.c-h.ph{aspect-ratio:16/9;align-self:end}
+.c-i{grid-column:3/7}.c-j{grid-column:7/11;margin-top:10%}
+.ctext{grid-column:1/5;align-self:center;font-size:.9rem;font-weight:300;max-width:34ch}
+.carousel{position:relative}
+.track{display:flex;gap:clamp(10px,1.4vw,18px);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-inline:var(--gutter);scroll-padding-inline:var(--gutter);cursor:grab;overscroll-behavior-x:contain}
+.track::-webkit-scrollbar{display:none}
+.track.dragging{cursor:grabbing;scroll-snap-type:none}
+.track .ph{flex:0 0 clamp(240px,30vw,420px);aspect-ratio:3/4;scroll-snap-align:start}
+.track .ph:nth-child(1){aspect-ratio:9/16;flex-basis:clamp(210px,24vw,330px)}
+.car-ui{display:flex;justify-content:space-between;align-items:center;margin-top:22px;gap:16px}
+.car-btns{display:flex;gap:8px}
+.car-btns button{width:48px;height:48px;border-radius:50%;border:0;cursor:pointer;font:inherit;font-size:1.1rem;color:var(--navy);display:grid;place-items:center;transition:transform .3s var(--ease)}
+.car-btns button:hover{transform:scale(1.08)}
+.car-prog{flex:1;max-width:320px;height:2px;background:rgba(10,26,58,.15);border-radius:2px;overflow:hidden}
+.car-prog i{display:block;height:100%;width:20%;background:var(--navy);transform-origin:0 50%}
+.overlap{display:grid;grid-template-columns:repeat(12,1fr);align-items:start}
+.overlap .ph{aspect-ratio:9/16;box-shadow:0 30px 60px -30px rgba(10,26,58,.5)}
+.o1{grid-column:1/5;grid-row:1;margin-top:14%;z-index:1}.o2{grid-column:4/8;grid-row:1;z-index:2}
+.o3{grid-column:7/10;grid-row:1;margin-top:24%;z-index:3}.o4{grid-column:9/13;grid-row:1;margin-top:6%;z-index:2}
+.o5{grid-column:5/9;grid-row:2;margin-top:-30%;z-index:4;width:78%;justify-self:center}
+.inst{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(8px,1.2vw,16px)}
+.inst .ph{aspect-ratio:3/4}
+.amb{display:grid;grid-template-columns:1.778fr .75fr;gap:clamp(8px,1.2vw,16px);margin-top:clamp(8px,1.2vw,16px)}
+.amb .ph:first-child{aspect-ratio:16/9}
+.amb .ph:last-child{aspect-ratio:3/4}
+.sublabel{display:flex;align-items:center;gap:12px;margin:clamp(30px,4vw,50px) 0 16px;font-size:.7rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;opacity:.75}
+.sublabel::after{content:"";flex:1;height:1px;background:currentColor;opacity:.25}
+.sublabel:first-child{margin-top:0}
+
+/* ---------- Vídeo: players ---------- */
+.vp{position:relative;border-radius:22px;overflow:hidden;background:#140800;cursor:pointer;isolation:isolate}
+.vp video{width:100%;height:100%;object-fit:cover}
+.vp.wide{aspect-ratio:16/9;border-radius:26px;box-shadow:0 40px 80px -30px rgba(43,17,3,.6)}
+.vp.tall{aspect-ratio:9/16}
+.vp .ov{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(14px,2.2vw,28px);background:linear-gradient(180deg,rgba(0,0,0,.35),transparent 30%,transparent 58%,rgba(0,0,0,.6));color:#fff;transition:opacity .6s var(--ease);z-index:2}
+.vp.playing .ov{opacity:0;pointer-events:none}
+.vp .ov .t{font-weight:800;font-size:clamp(1.8rem,5.4vw,5.2rem);letter-spacing:.05em;text-transform:uppercase;line-height:.9}
+.vp.tall .ov .t{font-size:clamp(1.1rem,1.8vw,1.6rem);letter-spacing:.08em}
+.vp .ov .bottom{display:flex;justify-content:space-between;align-items:end;gap:10px;flex-wrap:wrap}
+.playbtn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:8px 18px 8px 8px;font-weight:600;font-size:.86rem;border:0;color:#fff;font-family:inherit;cursor:pointer}
+.playbtn .pi{width:36px;height:36px;border-radius:50%;background:#fff;display:grid;place-items:center;color:var(--orange)}
+.vp.tall .playbtn{padding:6px 14px 6px 6px;font-size:.78rem}
+.vp.tall .playbtn .pi{width:28px;height:28px}
+.hoverhint{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;opacity:.8}
+.av .glass{background:linear-gradient(135deg,rgba(255,255,255,.34),rgba(255,255,255,.12));border-color:rgba(255,255,255,.5)}
+.av .proj-bar{border-color:rgba(43,17,3,.35)}
+.av-meta{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(24px,5vw,80px);margin-top:clamp(24px,3vw,36px);align-items:start}
+.av-meta .lead{color:var(--orange-ink)}
+.crew{border-radius:22px;padding:20px 22px;display:grid;gap:16px}
+.crew .grp{display:grid;gap:8px}
+.crew .k{font-size:.66rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;opacity:.7}
+.people{display:flex;flex-wrap:wrap;gap:8px}
+.person{display:inline-flex;align-items:center;gap:9px;text-decoration:none;padding:5px 14px 5px 5px;border-radius:999px;background:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.6);transition:transform .4s var(--ease),background .3s;line-height:1.2}
+.person:hover{transform:translateY(-2px);background:rgba(255,255,255,.7)}
+.person .av{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;flex:none;background:linear-gradient(45deg,#FEDA75,#FA7E1E 30%,#D62976 60%,#962FBF 85%,#4F5BD5)}
+.person .av svg{width:16px;height:16px;fill:#fff}
+.person b{display:block;font-size:.84rem;font-weight:600}
+.person small{display:block;font-size:.72rem;opacity:.7}
+.person.me{background:var(--orange-ink);color:#fff;border-color:transparent}
+.person.me:hover{background:#000}
+/* Meu Quintal vídeos */
+.mq-high{display:grid;grid-template-columns:1fr 1fr 3.16fr;gap:clamp(8px,1.2vw,16px);align-items:start}
+.mq-high .vp{border-radius:18px}
+.drinks > *{min-width:0}
+.drinks{display:grid;grid-template-columns:1fr minmax(260px,380px);gap:clamp(24px,5vw,80px);align-items:center}
+.menu-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(7,auto);grid-auto-flow:column;column-gap:clamp(16px,3vw,40px)}
+.menu-list li button{width:100%;display:flex;align-items:baseline;gap:14px;padding:12px 4px;background:none;border:0;border-bottom:1px solid rgba(43,17,3,.22);font:inherit;color:inherit;text-align:left;cursor:pointer;transition:padding .4s var(--ease),color .3s}
+.menu-list li button .n{font-size:.7rem;font-weight:600;letter-spacing:.12em;opacity:.55;font-variant-numeric:tabular-nums}
+.menu-list li button .d{font-weight:600;font-size:clamp(.98rem,1.3vw,1.15rem)}
+.menu-list li button:hover{padding-left:10px}
+.menu-list li button.on{color:#fff}
+.menu-list li button.on .n{opacity:1}
+.phone{position:relative;border-radius:34px;padding:10px;aspect-ratio:9/16.9}
+.phone .vp{border-radius:26px;height:100%}
+.phone .vp video{position:absolute;inset:0}
+.phone .now-t{position:absolute;left:20px;right:20px;top:22px;z-index:3;display:flex;justify-content:space-between;align-items:center;color:#fff;font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;text-shadow:0 1px 6px rgba(0,0,0,.5);pointer-events:none}
+.phone .snd{position:absolute;right:20px;bottom:20px;z-index:3;border:0;border-radius:999px;padding:8px 14px;font:inherit;font-size:.74rem;font-weight:600;color:#fff;cursor:pointer}
+.menu-hint{margin-top:18px;font-size:.8rem;font-weight:300;opacity:.8}
+
+/* Look da Julinha */
+.jgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.4vw,20px)}
+.jgrid .ph{aspect-ratio:3/4}
+.jgrid .j2,.jgrid .j5{margin-top:14%}
+.jgrid .j3 img,.jgrid .j5 img{object-position:50% 35%}
+.jl{display:grid;grid-template-columns:minmax(240px,400px) 1fr;gap:clamp(24px,5vw,80px);align-items:center}
+.jl > *{min-width:0}
+.jl-txt{display:grid;gap:24px}
+
+/* ---------- Design ---------- */
+.ds .proj-bar{border-color:rgba(255,255,255,.25)}
+.ds .ph{background:rgba(255,255,255,.06)}
+.ds .banner.ph{aspect-ratio:16/9;border-radius:22px}
+.stories{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(10px,1.4vw,18px);margin-top:clamp(10px,1.4vw,18px)}
+.stories .ph{aspect-ratio:9/16}
+.stories .ph:nth-child(even){margin-top:12%}
+.posts{display:grid;grid-template-columns:1fr 1fr 1.1fr;gap:clamp(10px,1.4vw,18px);margin-top:clamp(40px,6vw,90px);align-items:end}
+.posts .ph{aspect-ratio:4/5}
+.posts .txt{padding:0 0 10px clamp(0px,2vw,30px);display:grid;gap:14px;font-weight:300;max-width:34ch}
+.posts .txt .label{opacity:.7}
+.toolchips{display:flex;flex-wrap:wrap;gap:8px}
+.toolchips > span{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:500;border-radius:999px;padding:5px 13px 5px 5px}
+
+/* ---------- Encerramento ---------- */
+.end{position:relative;padding-block:clamp(110px,14vw,200px) 40px;overflow:hidden;color:var(--ink)}
+.end h2{font-weight:800;font-size:clamp(3rem,10vw,10rem);letter-spacing:.02em;text-transform:uppercase;line-height:.88}
+.end h2 .o{color:var(--orange)}
+.end .story{display:grid;gap:1.1em;margin-top:clamp(30px,4vw,50px);max-width:56ch}
+.end .story p{font-size:clamp(1.05rem,1.4vw,1.2rem);font-weight:300}
+.end .story .pub{font-weight:800;font-size:clamp(1.8rem,4vw,3.2rem);letter-spacing:.04em;text-transform:uppercase;margin-top:.2em}
+.end .d1{right:8%;top:120px;width:90px;animation:wiggle 5s ease-in-out infinite}
+.end .d2{right:26%;top:48%;width:70px;color:var(--sky-deep)}
+.sign{margin-top:clamp(90px,12vw,170px);border-top:1px solid rgba(12,18,32,.15);padding-top:clamp(40px,5vw,60px);display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:end}
+.sign .big{font-weight:800;font-size:clamp(2.4rem,7vw,6.2rem);letter-spacing:-.02em;line-height:.9;text-transform:lowercase}
+.sign .disc{margin-top:18px;font-weight:500;letter-spacing:.06em}
+.contact{display:grid;gap:12px}
+.contact a.btn{display:flex;justify-content:space-between;align-items:center;gap:12px;text-decoration:none;border-radius:22px;padding:16px 16px 16px 22px;transition:transform .5s var(--ease)}
+.contact a.btn:hover{transform:translateY(-3px)}
+.contact a.btn .k{font-size:.66rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3)}
+.contact a.btn .v{font-weight:600;font-size:1.15rem}
+.contact .icons{display:flex;align-items:center;gap:8px;flex:none}
+.contact .ig{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%);box-shadow:0 8px 18px -8px rgba(214,36,159,.6)}
+.contact .ig svg{width:22px;height:22px;fill:#fff}
+.contact .arrow{width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;flex:none;transition:transform .5s var(--ease)}
+.contact a.btn:hover .arrow{transform:rotate(-45deg)}
+.contact .handles{font-size:.78rem;color:var(--ink-2);padding-inline:6px}
+footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.72rem;color:var(--ink-3);margin-top:70px;padding-bottom:40px;letter-spacing:.06em}
+
+/* ---------- Lightbox ---------- */
+.lb{position:fixed;inset:0;z-index:80;display:grid;place-items:center;background:rgba(7,9,15,.84);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility 0s linear .45s}
+.lb.open{opacity:1;visibility:visible;transition:opacity .45s var(--ease)}
+.lb img{max-width:min(92vw,1400px);max-height:80svh;border-radius:12px;object-fit:contain;transform:scale(.96);transition:transform .6s var(--ease)}
+.lb.open img{transform:none}
+.lb .ctrl{position:fixed;display:flex;gap:6px;bottom:calc(env(safe-area-inset-bottom,0px) + 22px);left:50%;transform:translateX(-50%);border-radius:999px;padding:6px}
+.lb button{border:0;background:transparent;color:#fff;font:inherit;font-size:.85rem;font-weight:600;padding:10px 16px;border-radius:999px;cursor:pointer}
+.lb button:hover{background:rgba(255,255,255,.14)}
+.lb .count{align-self:center;font-size:.75rem;color:rgba(255,255,255,.7);padding-inline:6px;font-variant-numeric:tabular-nums}
+.lb .lcap{position:fixed;top:calc(env(safe-area-inset-top,0px) + 22px);left:50%;transform:translateX(-50%);color:rgba(255,255,255,.8);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;text-align:center;width:90vw}
+
+/* ---------- Indicador lateral ---------- */
+.dots{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:40;display:grid;gap:10px;padding:12px 9px;border-radius:999px;color:var(--ink)}
+.dots a{width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.25;transition:opacity .3s,transform .4s var(--ease);display:block}
+.dots a.active{opacity:1;transform:scale(1.35)}
+body.darknav .dots{color:#fff;background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.03));border-color:rgba(255,255,255,.2)}
+
+/* ---------- Responsivo ---------- */
+@media (max-width:1100px){
+  .dots{display:none}
+  .ui-card{display:none}
+}
+@media (max-width:900px){
+  .kid-grid,.about-grid,.now .top,.av-meta,.sign,.drinks{grid-template-columns:1fr}
+  .polaroid-wrap{width:min(100%,440px);margin-top:20px}
+  .note{right:0;bottom:-56px}
+  .about .portrait{max-width:520px}
+  .scard{grid-template-columns:1fr;min-height:auto;position:relative;top:auto}
+  .pf-head{grid-template-columns:1fr}
+  .credit{text-align:left}
+  .cgrid{grid-template-columns:repeat(2,1fr)}
+  .cgrid > *{grid-column:auto!important;margin-top:0!important}
+  .cgrid .c-h,.cgrid .ctext{grid-column:1/-1!important}
+  .cgrid .ctext{margin-block:10px}
+  .overlap{grid-template-columns:repeat(2,1fr);gap:10px}
+  .overlap .ph{grid-column:auto!important;grid-row:auto!important;margin-top:0!important;width:100%!important}
+  .overlap .o5{grid-column:1/-1!important;width:62%!important}
+  .inst{grid-template-columns:repeat(2,1fr)}
+  .jgrid{grid-template-columns:repeat(2,1fr)}
+  .jgrid .j2,.jgrid .j5{margin-top:0}
+  .jgrid .j2,.jgrid .j4,.jgrid .j6{transform:translateY(12%)}
+  .jl{grid-template-columns:1fr}
+  .jl .vp{width:min(100%,360px);justify-self:center}
+  .stories{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:62%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;scrollbar-width:none;margin-inline:calc(var(--gutter) * -1);padding-inline:var(--gutter)}
+  .stories::-webkit-scrollbar{display:none}
+  .stories .ph{scroll-snap-align:center;margin-top:0!important}
+  .posts{grid-template-columns:1fr 1fr}
+  .posts .txt{grid-column:1/-1;padding:10px 0 0;grid-row:1}
+  .ph figcaption{opacity:1;transform:none}
+  .end .d1{top:60px;right:4%;width:64px}
+  .end .d2{display:none}
+  .roles{grid-template-columns:1fr}
+  .mq-high{grid-template-columns:1fr 1fr}
+  .mq-high .vp.wide{grid-column:1/-1;grid-row:1}
+  .drinks .phone{order:-1;width:min(100%,340px);justify-self:center}
+  .menu-list{grid-template-columns:none;grid-template-rows:none;grid-auto-flow:column;overflow-x:auto;scrollbar-width:none;gap:8px;padding-bottom:6px;margin-inline:calc(var(--gutter) * -1);padding-inline:var(--gutter)}
+  .menu-list::-webkit-scrollbar{display:none}
+  .menu-list li button{border:1px solid rgba(43,17,3,.25);border-radius:999px;padding:8px 14px;white-space:nowrap}
+  .menu-list li button:hover{padding-left:14px}
+  .menu-list li button.on{background:var(--orange-ink)}
+  .menu-hint{text-align:center}
+  /* capa mobile */
+  .hname{font-size:min(21vw,9rem)}
+  .w1{top:17%;left:var(--gutter);transform:none}
+  .w2{top:auto;bottom:25%;left:auto;right:var(--gutter);transform:none}
+  .hero-photo{height:66%}
+  .ui-menu{display:none}
+  .toolbar{bottom:calc(env(safe-area-inset-bottom,0px) + 16px);padding:4px;border-radius:14px}
+  .toolbar .tl{width:32px;height:32px;border-radius:9px}
+  .toolbar .tl svg{width:16px;height:16px}
+  .scrollcue{display:none}
+  .lens.l1{left:-12%;top:30%}
+  .lens.l3{display:none}
+  .hero .meta.m-l{top:calc(env(safe-area-inset-top,0px) + 74px);left:var(--gutter);right:auto;bottom:auto;text-align:left;font-size:.62rem}
+  .hero .meta.m-r{display:none}
+  .selbox .dim{display:none}
+}
+@media (max-width:520px){
+  .track .ph{flex-basis:74vw}
+  .track .ph:nth-child(1){flex-basis:60vw}
+  .hero-photo{height:60%}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .rv.pre{opacity:1;transform:none;filter:none}
+}
+</style>
+</head><body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<nav class="nav glass" id="nav" aria-label="Navegação principal">
+  <a class="brand" href="#inicio">matheus rossine</a>
+  <a class="item" href="#sobre" data-target="sobre">Sobre</a>
+  <a class="item" href="#skills" data-target="skills">Skills</a>
+  <a class="item" href="#fotografia" data-target="fotografia">Fotografia</a>
+  <a class="item" href="#audiovisual" data-target="audiovisual">Audiovisual</a>
+  <a class="item" href="#design" data-target="design">Design</a>
+  <a class="item" href="#contato" data-target="contato">Contato</a>
+</nav>
+
+<div class="mbar glass" id="mbar">
+  <a class="b" href="#inicio">rossine</a>
+  <span class="cur" id="mnow">Início</span>
+  <button type="button" id="mbtn" aria-expanded="false" aria-controls="mmenu">Menu</button>
+</div>
+<nav class="mmenu" id="mmenu" aria-label="Menu">
+  <a href="#sobre">Sobre <span>história</span></a>
+  <a href="#skills">Skills <span>ferramentas</span></a>
+  <a href="#fotografia">Fotografia <span>azul claro</span></a>
+  <a href="#audiovisual">Audiovisual <span>laranja</span></a>
+  <a href="#design">Design <span>azul escuro</span></a>
+  <a href="#contato">Contato <span>instagram</span></a>
+</nav>
+
+<div class="dots glass" id="dots" aria-hidden="true"></div>
+
+<main>
+
+<!-- 01 · CAPA -->
+<header class="hero" id="inicio" data-bg="blue" data-dark="1" data-name="Início">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="mesh"><i class="m1"></i><i class="m2"></i><i class="m3"></i><i class="m4"></i></div>
+    <div class="grid"></div>
+    <div class="beam"></div>
+    <div class="grain"></div>
+  </div>
+  <span class="lens l1" data-mouse="22" aria-hidden="true"></span>
+  <span class="lens l2" data-mouse="-30" aria-hidden="true"></span>
+  <span class="lens l3" data-mouse="14" aria-hidden="true"></span>
+
+  <div class="stage" id="stage">
+    <h1 class="hname" aria-label="matheus rossine">
+      <span class="w w1" id="w1" data-split>matheus</span>
+      <span class="w w2" id="w2" data-split>rossine</span>
+    </h1>
+    <div class="hero-photo" aria-hidden="true"><img src="assets/hero-rossine.webp" alt="" width="1086" height="1128" fetchpriority="high"></div>
+    <div class="selbox" id="selbox" aria-hidden="true"><span class="h"></span><span class="h"></span><span class="h"></span><span class="h"></span><span class="dim" id="dim">ideias em movimento</span></div>
+  </div>
+
+  <p class="meta m-l">Publicidade <b>•</b> Criatividade <b>•</b> Audiovisual</p>
+  <p class="meta m-r">Portfólio 2026<br>Natal · RN</p>
+
+  <div class="ui ui-menu glass dark" id="uiMenu" aria-hidden="true">
+    <div class="it on"><span class="ck">✓</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#BFE1F7" stroke-width="1.8" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.4"/></svg><span>Fotografia</span><span class="k">F</span></div>
+    <div class="it"><span class="ck">✓</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFB27F" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg><span>Audiovisual</span><span class="k">A</span></div>
+    <div class="it"><span class="ck">✓</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 7l3 3"/></svg><span>Design</span><span class="k">D</span></div>
+  </div>
+
+  <div class="ui ui-card glass dark" aria-hidden="true">
+    <p class="t">Portfólio 2026</p>
+    <p class="typed" id="typed"></p>
+    <div class="row">
+      <span class="ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5s1.3 2 3.5 2 3.5-2 3.5-2M9 9.5h.01M15 9.5h.01" stroke-linecap="round"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
+      </span>
+      <span class="send"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span>
+    </div>
+  </div>
+
+  <div class="ui toolbar glass dark" id="toolbar" aria-hidden="true">
+    <span class="tl on"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 3l14 7-6 1.8L10.5 19z"/></svg></span>
+    <span class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 3v18M16 3v18M3 8h18M3 16h18"/></svg></span>
+    <span class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/></svg></span>
+    <span class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l7 7-7 11-7-11z"/><circle cx="12" cy="11" r="1.6"/></svg></span>
+    <span class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5h14M12 5v15"/></svg></span>
+    <span class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12a8 8 0 1 1 3.5 6.6L4 20l1.2-3.6A8 8 0 0 1 4 12z"/></svg></span>
+    <span class="sep"></span>
+    <span class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg></span>
+    <span class="tl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.4"/></svg></span>
+  </div>
+
+  <div class="cursor c1" id="cur1" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 2l16 9-7 2-3 7z" fill="currentColor" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></svg><span class="tag">Matheus Rossine</span></div>
+  <div class="cursor c2" id="cur2" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 2l16 9-7 2-3 7z" fill="currentColor" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></svg><span class="tag">você</span></div>
+
+  <a class="scrollcue glass dark" href="#historia">SCROLL TO EXPLORE <span class="arr">↓</span></a>
+</header>
+
+<!-- 02 · DA CRIANÇA CRIATIVA AO PUBLICITÁRIO -->
+<section class="kid" id="historia" data-bg="paper" data-name="História">
+  <svg class="doodle d1 draw" viewBox="0 0 80 80" fill="none" aria-hidden="true"><path d="M40 6 L47 30 L73 32 L52 47 L60 73 L40 57 L20 73 L28 47 L7 32 L33 30 Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round" style="--len:260"/></svg>
+  <svg class="doodle d2 draw" viewBox="0 0 120 60" fill="none" aria-hidden="true"><path d="M4 40 C 20 5, 34 5, 40 30 S 62 55, 70 25 S 96 0, 116 30" stroke="currentColor" stroke-width="3" stroke-linecap="round" style="--len:220"/></svg>
+  <svg class="doodle d3 draw" viewBox="0 0 60 60" fill="none" aria-hidden="true"><circle cx="30" cy="30" r="24" stroke="currentColor" stroke-width="3" stroke-dasharray="4 7" style="--len:160"/><circle cx="30" cy="30" r="6" fill="currentColor"/></svg>
+  <div class="wrap kid-grid">
+    <div>
+      <p class="label rv pre" style="color:var(--sky-deep)">Capítulo 01 · Curiosidade</p>
+      <h2 class="rv pre" style="margin-top:18px">Da criança <span class="sq">criativa<svg class="draw" viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 14 C 50 4, 120 4, 197 12" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" style="--len:210"/></svg></span> ao publicitário</h2>
+      <div class="story">
+        <p class="rv pre">Antes de pensar em publicidade, eu já gostava de criar.</p>
+        <p class="rv pre">Desenhava, inventava brincadeiras, criava histórias, fotografava, gravava vídeos e encontrava alguma forma de transformar aquilo que imaginava em algo que pudesse mostrar para alguém.</p>
+        <p class="rv pre">Por um tempo, essas coisas pareciam apenas brincadeiras de criança. Com o passar dos anos, fui descobrindo que elas tinham algo em comum: eu gostava de criar.</p>
+        <p class="rv pre">O que começou como curiosidade acabou virando ferramenta, profissão e, principalmente, uma forma de enxergar o mundo.</p>
+      </div>
+      <div class="chips rv pre" aria-label="O que eu gostava de fazer">
+        <span class="chip">desenhar</span><span class="chip">inventar brincadeiras</span><span class="chip">criar histórias</span><span class="chip">gravar vídeos</span><span class="chip">fotografar</span><span class="chip">mostrar para alguém</span>
+      </div>
+    </div>
+    <div class="polaroid-wrap rv pre zoom">
+      <span class="tape" aria-hidden="true"></span>
+      <figure class="polaroid" data-speed="-0.05">
+        <img data-src="assets/teteu-crianca.jpg" alt="Matheus Rossine ainda criança, de braços cruzados, sorrindo" width="2000" height="1333">
+        <figcaption class="cap">Teteu</figcaption>
+      </figure>
+      <div class="note" aria-hidden="true"><svg viewBox="0 0 60 40" fill="none"><path d="M56 36 C 40 30, 20 22, 8 6 M8 6 L 9 18 M8 6 L 20 8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>já criando alguma coisa</div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · QUEM É -->
+<section class="about" id="sobre" data-bg="white" data-name="Sobre">
+  <div class="wrap about-grid">
+    <figure class="portrait rv pre zoom">
+      <span class="gl" aria-hidden="true"></span>
+      <img data-src="assets/rossine-selfie.webp" alt="Matheus Rossine, retrato de camiseta branca" width="1382" height="904" data-speed="0.05">
+      <figcaption class="tag glass">Capítulo 02 · Descoberta</figcaption>
+    </figure>
+    <div>
+      <h2 class="rv pre"><span>Matheus</span><span>Rossine</span></h2>
+      <div class="text">
+        <p class="lead rv pre">Hoje, sou estudante de Publicidade e Propaganda na UNP, estudante de Administração na UFRN e Diretor de Marketing da Capitania do Cheiro.</p>
+        <p class="rv pre">Também atuo como freelancer, desenvolvendo projetos de comunicação, criação, audiovisual, fotografia e design.</p>
+        <p class="rv pre">Minha formação acabou acontecendo em dois caminhos que, para mim, se complementam: de um lado, criatividade e comunicação; do outro, estratégia e gestão.</p>
+        <p class="rv pre">No meio desses dois mundos, encontrei o meu jeito de trabalhar.</p>
+      </div>
+      <ul class="roles">
+        <li class="rv pre"><span>UNP</span><b>Publicidade e Propaganda</b></li>
+        <li class="rv pre"><span>UFRN</span><b>Administração</b></li>
+        <li class="rv pre"><span>Capitania do Cheiro</span><b>Diretor de Marketing</b></li>
+        <li class="rv pre"><span>Independente</span><b>Freelancer</b></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 04 · MEU EU ATUAL -->
+<section class="now" id="agora" data-bg="white" data-name="Hoje">
+  <div class="wrap top">
+    <div>
+      <p class="label rv pre" style="color:var(--orange)">Capítulo 03 · Experimentação</p>
+      <h2 class="rv pre" style="margin-top:18px">E eu ainda gosto de criar.</h2>
+    </div>
+    <div class="text">
+      <p class="lead rv pre">A diferença é que hoje eu tenho mais ferramentas para transformar minhas ideias em realidade.</p>
+      <p class="rv pre">Continuo apaixonado pelo audiovisual, pela fotografia e pelo design. Gosto de experimentar formatos, testar ideias e descobrir novas maneiras de contar uma história.</p>
+      <p class="rv pre">Talvez a criança que gravava vídeos e inventava coisas ainda esteja aqui.</p>
+      <p class="tools-line" id="toolsLine" aria-label="Só ganhou algumas ferramentas novas.">Só ganhou algumas ferramentas novas.</p>
+      <div class="tools-icons rv pre">
+        <span class="ti glass"><svg viewBox="0 0 24 24" fill="none" stroke="var(--sky-deep)" stroke-width="1.8" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.6"/></svg>Fotografia</span>
+        <span class="ti glass"><svg viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg>Audiovisual</span>
+        <span class="ti glass"><svg viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="1.8" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 7l3 3"/></svg>Design</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 · SKILLS -->
+<section class="skills" id="skills" data-bg="white" data-name="Skills">
+  <div class="wrap">
+    <div class="skills-head">
+      <h2 class="rv pre">Skills</h2>
+      <p class="label muted rv pre">Três ferramentas · uma forma de contar</p>
+    </div>
+    <div class="stack">
+      <article class="scard photo">
+        <div>
+          <p class="num">01 · Azul claro</p>
+          <h3>Fotografia</h3>
+          <p class="sub">Meu primeiro olhar criativo.</p>
+          <div class="body">
+            <p>Tenho experiência com câmeras profissionais, mas foi no mobile que desenvolvi grande parte do meu olhar fotográfico.</p>
+            <p>A praticidade do celular me permite registrar ideias, momentos e conteúdos com rapidez, sem abrir mão da intenção por trás da imagem.</p>
+          </div>
+        </div>
+        <div class="side">
+          <div class="tools"><p class="label">Ferramentas</p>
+            <div class="toolset"><span><span class="app" aria-hidden="true" style="background:#001E36"><svg viewBox="0 0 24 24"><g transform="translate(0.00 0.00) scale(1)"><path fill="#31A8FF" d="M19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.9c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm-6.99 16.389c0 .051-.029.09-.06.121-.03.02-.06.029-.101.029H6.26c-.11 0-.16-.061-.16-.18V6.44c-.01-.07.04-.13.11-.14h2c.05-.01.11.03.11.08v8.43h4.62c.101 0 .131.049.11.14l-.29 1.739zm6.25-7.859v1.95c0 .08-.05.11-.16.11-.649-.04-1.3.08-1.89.34-.2.09-.39.21-.54.37v5.1c0 .1-.04.14-.13.14h-1.95c-.08.01-.15-.04-.16-.119V11.14c0-.24 0-.49-.01-.75s-.01-.52-.02-.78c-.01-.22-.03-.44-.061-.66-.01-.05.02-.1.07-.11.01-.01.02-.01.04 0h1.75c.1 0 .18.07.21.16.04.07.07.15.08.23.02.1.039.21.05.31.01.11.021.23.021.36.299-.35.66-.64 1.069-.86.46-.25.97-.37 1.49-.36.069-.01.13.04.14.11.001.01.001.02.001.04z"/></g></svg></span>Lightroom</span><span><span class="app" aria-hidden="true" style="background:#001E36"><svg viewBox="0 0 24 24"><path fill="#001E36" d="M0 0h24v24H0z"/><g transform="translate(0.00 0.00) scale(1)"><path fill="#31A8FF" d="M9.85 8.42c-.37-.15-.77-.21-1.18-.2-.26 0-.49 0-.68.01-.2-.01-.34 0-.41.01v3.36c.14.01.27.02.39.02h.53c.39 0 .78-.06 1.15-.18.32-.09.6-.28.82-.53.21-.25.31-.59.31-1.03.01-.31-.07-.62-.23-.89-.17-.26-.41-.46-.7-.57zM19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.899c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm-7.391 11.65c-.399.56-.959.98-1.609 1.22-.68.25-1.43.34-2.25.34-.24 0-.4 0-.5-.01s-.24-.01-.43-.01v3.209c.01.07-.04.131-.11.141H5.52c-.08 0-.12-.041-.12-.131V6.42c0-.07.03-.11.1-.11.17 0 .33 0 .56-.01.24-.01.49-.01.76-.02s.56-.01.87-.02c.31-.01.61-.01.91-.01.82 0 1.5.1 2.06.31.5.17.96.45 1.34.82.32.32.57.71.73 1.14.149.42.229.85.229 1.3.001.86-.199 1.57-.6 2.13zm7.091 3.89c-.28.4-.671.709-1.12.891-.49.209-1.09.318-1.811.318-.459 0-.91-.039-1.359-.129-.35-.061-.7-.17-1.02-.32-.07-.039-.121-.109-.111-.189v-1.74c0-.029.011-.07.041-.09.029-.02.06-.01.09.01.39.23.8.391 1.24.49.379.1.779.15 1.18.15.38 0 .65-.051.83-.141.16-.07.27-.24.27-.42 0-.141-.08-.27-.24-.4-.16-.129-.489-.279-.979-.471-.51-.18-.979-.42-1.42-.719-.31-.221-.569-.51-.761-.85-.159-.32-.239-.67-.229-1.021 0-.43.12-.84.341-1.21.25-.4.619-.72 1.049-.92.469-.239 1.059-.349 1.769-.349.41 0 .83.03 1.24.09.3.04.59.12.86.23.039.01.08.05.1.09.01.04.02.08.02.12v1.63c0 .04-.02.08-.05.1-.09.02-.14.02-.18 0-.3-.16-.62-.27-.96-.34-.37-.08-.74-.13-1.12-.13-.2-.01-.41.02-.601.07-.129.03-.24.1-.31.2-.05.08-.08.18-.08.27s.04.18.101.26c.09.11.209.2.34.27.229.12.47.23.709.33.541.18 1.061.43 1.541.73.33.209.6.49.789.83.16.318.24.67.23 1.029.011.471-.129.94-.389 1.331z"/></g></svg></span>Photoshop</span><span><span class="app" aria-hidden="true" style="background:linear-gradient(135deg,#8EC9F0,#3E8FD0)"><svg viewBox="0 0 24 24"><rect x="7.5" y="3.5" width="9" height="17" rx="2.2" fill="none" stroke="#fff" stroke-width="1.6"/><path d="M11 17.6h2" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></span>Aplicativos de edição mobile</span></div>
+          </div>
+          <div class="levels pre">
+            <div class="lvl"><div class="top"><span class="nm"><span class="app" aria-hidden="true" style="background:#001E36"><svg viewBox="0 0 24 24"><g transform="translate(0.00 0.00) scale(1)"><path fill="#31A8FF" d="M19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.9c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm-6.99 16.389c0 .051-.029.09-.06.121-.03.02-.06.029-.101.029H6.26c-.11 0-.16-.061-.16-.18V6.44c-.01-.07.04-.13.11-.14h2c.05-.01.11.03.11.08v8.43h4.62c.101 0 .131.049.11.14l-.29 1.739zm6.25-7.859v1.95c0 .08-.05.11-.16.11-.649-.04-1.3.08-1.89.34-.2.09-.39.21-.54.37v5.1c0 .1-.04.14-.13.14h-1.95c-.08.01-.15-.04-.16-.119V11.14c0-.24 0-.49-.01-.75s-.01-.52-.02-.78c-.01-.22-.03-.44-.061-.66-.01-.05.02-.1.07-.11.01-.01.02-.01.04 0h1.75c.1 0 .18.07.21.16.04.07.07.15.08.23.02.1.039.21.05.31.01.11.021.23.021.36.299-.35.66-.64 1.069-.86.46-.25.97-.37 1.49-.36.069-.01.13.04.14.11.001.01.001.02.001.04z"/></g></svg></span>Lightroom</span><em>Avançado</em></div><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+            <div class="lvl"><div class="top"><span class="nm"><span class="app" aria-hidden="true" style="background:#001E36"><svg viewBox="0 0 24 24"><path fill="#001E36" d="M0 0h24v24H0z"/><g transform="translate(0.00 0.00) scale(1)"><path fill="#31A8FF" d="M9.85 8.42c-.37-.15-.77-.21-1.18-.2-.26 0-.49 0-.68.01-.2-.01-.34 0-.41.01v3.36c.14.01.27.02.39.02h.53c.39 0 .78-.06 1.15-.18.32-.09.6-.28.82-.53.21-.25.31-.59.31-1.03.01-.31-.07-.62-.23-.89-.17-.26-.41-.46-.7-.57zM19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.899c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm-7.391 11.65c-.399.56-.959.98-1.609 1.22-.68.25-1.43.34-2.25.34-.24 0-.4 0-.5-.01s-.24-.01-.43-.01v3.209c.01.07-.04.131-.11.141H5.52c-.08 0-.12-.041-.12-.131V6.42c0-.07.03-.11.1-.11.17 0 .33 0 .56-.01.24-.01.49-.01.76-.02s.56-.01.87-.02c.31-.01.61-.01.91-.01.82 0 1.5.1 2.06.31.5.17.96.45 1.34.82.32.32.57.71.73 1.14.149.42.229.85.229 1.3.001.86-.199 1.57-.6 2.13zm7.091 3.89c-.28.4-.671.709-1.12.891-.49.209-1.09.318-1.811.318-.459 0-.91-.039-1.359-.129-.35-.061-.7-.17-1.02-.32-.07-.039-.121-.109-.111-.189v-1.74c0-.029.011-.07.041-.09.029-.02.06-.01.09.01.39.23.8.391 1.24.49.379.1.779.15 1.18.15.38 0 .65-.051.83-.141.16-.07.27-.24.27-.42 0-.141-.08-.27-.24-.4-.16-.129-.489-.279-.979-.471-.51-.18-.979-.42-1.42-.719-.31-.221-.569-.51-.761-.85-.159-.32-.239-.67-.229-1.021 0-.43.12-.84.341-1.21.25-.4.619-.72 1.049-.92.469-.239 1.059-.349 1.769-.349.41 0 .83.03 1.24.09.3.04.59.12.86.23.039.01.08.05.1.09.01.04.02.08.02.12v1.63c0 .04-.02.08-.05.1-.09.02-.14.02-.18 0-.3-.16-.62-.27-.96-.34-.37-.08-.74-.13-1.12-.13-.2-.01-.41.02-.601.07-.129.03-.24.1-.31.2-.05.08-.08.18-.08.27s.04.18.101.26c.09.11.209.2.34.27.229.12.47.23.709.33.541.18 1.061.43 1.541.73.33.209.6.49.789.83.16.318.24.67.23 1.029.011.471-.129.94-.389 1.331z"/></g></svg></span>Photoshop</span><em>Básico</em></div><div class="bar"><i class="on"></i><i></i><i></i></div></div>
+            <div class="lvl"><div class="top"><span class="nm"><span class="app" aria-hidden="true" style="background:linear-gradient(135deg,#8EC9F0,#3E8FD0)"><svg viewBox="0 0 24 24"><rect x="7.5" y="3.5" width="9" height="17" rx="2.2" fill="none" stroke="#fff" stroke-width="1.6"/><path d="M11 17.6h2" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></span>Edição mobile</span><em>Avançado</em></div><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+          </div>
+        </div>
+        <span class="bigmark" aria-hidden="true">01</span>
+      </article>
+      <article class="scard video">
+        <div>
+          <p class="num">02 · Laranja</p>
+          <h3>Audiovisual</h3>
+          <p class="sub">Se uma imagem conta uma história, o vídeo coloca essa história em movimento.</p>
+          <div class="body">
+            <p>Atuo na captação e edição de vídeos para diferentes formatos, com experiência tanto em produção mobile quanto em computador.</p>
+            <p>Meu processo passa pela captação, montagem, ritmo, cortes e construção visual da narrativa.</p>
+          </div>
+        </div>
+        <div class="side">
+          <div class="tools"><p class="label">Ferramentas</p>
+            <div class="toolset"><span><span class="app" aria-hidden="true" style="background:#000"><svg viewBox="0 0 24 24"><path fill="#fff" d="M5 7.2 12 10.4l7-3.2v2.4L14.6 12 19 14.4v2.4L12 13.6 5 16.8v-2.4L9.4 12 5 9.6z"/><path fill="#fff" d="M6.5 5.5h11v1.6h-11zM6.5 16.9h11v1.6h-11z" opacity=".9"/></svg></span>CapCut</span><span><span class="app" aria-hidden="true" style="background:linear-gradient(135deg,#2a3f5a,#11151c)"><svg viewBox="0 0 24 24"><g transform="translate(4.08 4.08) scale(0.66)"><path fill="#fff" d="M17.621 0 5.977.004c-1.37 0-2.756.345-3.762 1.11a4.925 4.925 0 0 0-1.61 2.003C.233 3.93 0 5.02 0 5.951l.012 12.2c.002 1.604.479 3.057 1.461 4.112.984 1.056 2.462 1.683 4.331 1.691L16.856 24c1.26.005 3.095-.036 4.303-.714 1.075-.605 2.025-1.556 2.497-2.984.278-.84.345-2.084.344-3.147l-.021-11.13c-.002-.888-.15-2.023-.547-2.934-.425-.976-1.181-1.815-2.322-2.425C20.353.26 19.123 0 17.622 0zm0 .93c1.378 0 2.538.295 3.04.565.977.523 1.544 1.166 1.889 1.96.315.721.47 1.793.473 2.572l.018 11.13c.002 1.013-.097 2.257-.298 2.86-.396 1.202-1.146 1.946-2.063 2.462-.814.457-2.612.593-3.82.588l-11.05-.044c-1.657-.007-2.832-.534-3.626-1.386-.792-.851-1.212-2.06-1.212-3.485L.999 5.95c0-.829.196-1.827.474-2.437.345-.757.75-1.207 1.365-1.674C3.585 1.27 4.868.97 6.08.97zm-5.66 3.423c-1.976.089-3.204 1.658-3.214 3.29.019 1.443 1.635 3.481 2.884 4.53.12.099.154.109.33.18.062.025.198-.047.327-.135.36-.245.993-.947 1.648-1.738a7.67 7.67 0 0 0 1.031-1.683c.409-.89.261-1.599.235-1.888a3.983 3.983 0 0 0-.99-1.692 3.36 3.36 0 0 0-2.251-.864zm4.172 7.922a10.185 10.185 0 0 0-3.244.61c-.15.058-.26.1-.374.17-.057.036-.11.135-.105.292.017.433.29 1.278.624 2.27.384 1.135 1.066 2.27 1.844 2.74a3.23 3.23 0 0 0 2.53.342c.832-.243 1.595-.868 1.962-1.546.986-1.818.19-3.548-1.121-4.417-.447-.296-1.133-.445-1.89-.46-.074 0-.15-.002-.226-.001zm-8.432.038a6.201 6.201 0 0 0-.752.047c-.596.078-.932.273-1.29.51a3.177 3.177 0 0 0-1.365 1.979c-.075.552-.086 1.053.033 1.507.433 1.389 1.326 2.222 2.847 2.452.636.028 1.37-.063 1.99-.45 1.269-.782 2.08-3.17 2.412-4.742.053-.176.035-.357-.013-.42-.005-.067-.044-.113-.19-.183-.398-.192-1.32-.417-2.375-.6a7.68 7.68 0 0 0-1.297-.1z"/></g></svg></span>DaVinci Resolve</span><span><span class="app" aria-hidden="true" style="background:linear-gradient(135deg,#8EC9F0,#3E8FD0)"><svg viewBox="0 0 24 24"><rect x="7.5" y="3.5" width="9" height="17" rx="2.2" fill="none" stroke="#fff" stroke-width="1.6"/><path d="M11 17.6h2" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></span>Ferramentas mobile</span></div>
+          </div>
+          <div class="levels pre">
+            <div class="lvl"><div class="top"><span class="nm"><span class="app" aria-hidden="true" style="background:linear-gradient(135deg,#FF8A3D,#E14E00)"><svg viewBox="0 0 24 24"><rect x="3.5" y="7" width="12" height="10" rx="2" fill="none" stroke="#fff" stroke-width="1.6"/><path d="M15.5 10.5 20.5 8v8l-5-2.5z" fill="#fff"/><circle cx="7.5" cy="10.5" r="1.3" fill="#fff"/></svg></span>Captação</span><em>Avançado</em></div><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+            <div class="lvl"><div class="top"><span class="nm"><span class="app" aria-hidden="true" style="background:linear-gradient(135deg,#8EC9F0,#3E8FD0)"><svg viewBox="0 0 24 24"><rect x="7.5" y="3.5" width="9" height="17" rx="2.2" fill="none" stroke="#fff" stroke-width="1.6"/><path d="M11 17.6h2" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></span>Edição mobile</span><em>Avançado</em></div><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+            <div class="lvl"><div class="top"><span class="nm"><span class="app" aria-hidden="true" style="background:linear-gradient(135deg,#2a3f5a,#11151c)"><svg viewBox="0 0 24 24"><g transform="translate(4.08 4.08) scale(0.66)"><path fill="#fff" d="M17.621 0 5.977.004c-1.37 0-2.756.345-3.762 1.11a4.925 4.925 0 0 0-1.61 2.003C.233 3.93 0 5.02 0 5.951l.012 12.2c.002 1.604.479 3.057 1.461 4.112.984 1.056 2.462 1.683 4.331 1.691L16.856 24c1.26.005 3.095-.036 4.303-.714 1.075-.605 2.025-1.556 2.497-2.984.278-.84.345-2.084.344-3.147l-.021-11.13c-.002-.888-.15-2.023-.547-2.934-.425-.976-1.181-1.815-2.322-2.425C20.353.26 19.123 0 17.622 0zm0 .93c1.378 0 2.538.295 3.04.565.977.523 1.544 1.166 1.889 1.96.315.721.47 1.793.473 2.572l.018 11.13c.002 1.013-.097 2.257-.298 2.86-.396 1.202-1.146 1.946-2.063 2.462-.814.457-2.612.593-3.82.588l-11.05-.044c-1.657-.007-2.832-.534-3.626-1.386-.792-.851-1.212-2.06-1.212-3.485L.999 5.95c0-.829.196-1.827.474-2.437.345-.757.75-1.207 1.365-1.674C3.585 1.27 4.868.97 6.08.97zm-5.66 3.423c-1.976.089-3.204 1.658-3.214 3.29.019 1.443 1.635 3.481 2.884 4.53.12.099.154.109.33.18.062.025.198-.047.327-.135.36-.245.993-.947 1.648-1.738a7.67 7.67 0 0 0 1.031-1.683c.409-.89.261-1.599.235-1.888a3.983 3.983 0 0 0-.99-1.692 3.36 3.36 0 0 0-2.251-.864zm4.172 7.922a10.185 10.185 0 0 0-3.244.61c-.15.058-.26.1-.374.17-.057.036-.11.135-.105.292.017.433.29 1.278.624 2.27.384 1.135 1.066 2.27 1.844 2.74a3.23 3.23 0 0 0 2.53.342c.832-.243 1.595-.868 1.962-1.546.986-1.818.19-3.548-1.121-4.417-.447-.296-1.133-.445-1.89-.46-.074 0-.15-.002-.226-.001zm-8.432.038a6.201 6.201 0 0 0-.752.047c-.596.078-.932.273-1.29.51a3.177 3.177 0 0 0-1.365 1.979c-.075.552-.086 1.053.033 1.507.433 1.389 1.326 2.222 2.847 2.452.636.028 1.37-.063 1.99-.45 1.269-.782 2.08-3.17 2.412-4.742.053-.176.035-.357-.013-.42-.005-.067-.044-.113-.19-.183-.398-.192-1.32-.417-2.375-.6a7.68 7.68 0 0 0-1.297-.1z"/></g></svg></span>DaVinci Resolve</span><em>Básico</em></div><div class="bar"><i class="on"></i><i></i><i></i></div></div>
+          </div>
+        </div>
+        <span class="bigmark" aria-hidden="true">02</span>
+      </article>
+      <article class="scard design">
+        <div>
+          <p class="num">03 · Azul escuro</p>
+          <h3>Design</h3>
+          <p class="sub">É onde ideia, estética e comunicação se encontram.</p>
+          <div class="body">
+            <p>Desenvolvo peças gráficas, identidades, apresentações, conteúdos digitais e materiais de comunicação, sempre buscando transformar uma ideia em uma linguagem visual.</p>
+          </div>
+        </div>
+        <div class="side">
+          <div class="tools"><p class="label">Ferramentas</p>
+            <div class="toolset"><span><span class="app" aria-hidden="true" style="background:#fff"><svg viewBox="0 0 24 24"><g transform="translate(2.40 2.40) scale(0.8)"><path fill="#00C4CC" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM6.962 7.68c.754 0 1.337.549 1.405 1.2.069.583-.171 1.097-.822 1.406-.343.171-.48.172-.549.069-.034-.069 0-.137.069-.206.617-.514.617-.926.548-1.508-.034-.378-.308-.618-.583-.618-1.2 0-2.914 2.674-2.674 4.629.103.754.549 1.646 1.509 1.646.308 0 .65-.103.96-.24.5-.264.799-.47 1.097-.8-.073-.885.704-2.046 1.851-2.046.515 0 .926.205.96.583.068.514-.377.582-.514.582s-.378-.034-.378-.17c-.034-.138.309-.07.275-.378-.035-.206-.24-.274-.446-.274-.72 0-1.131.994-1.029 1.611.035.275.172.549.447.549.205 0 .514-.31.617-.755.068-.308.343-.514.583-.514.102 0 .17.034.205.171v.138c-.034.137-.137.548-.102.651 0 .069.034.171.17.171.092 0 .436-.18.777-.459.117-.59.253-1.298.253-1.357.034-.24.137-.48.617-.48.103 0 .171.034.205.171v.138l-.136.617c.445-.583 1.097-.994 1.508-.994.172 0 .309.102.309.274 0 .103 0 .274-.069.446-.137.377-.309.96-.412 1.474 0 .137.035.274.207.274.171 0 .685-.206 1.096-.754l.007-.004c-.002-.068-.007-.134-.007-.202 0-.411.035-.754.104-.994.068-.274.411-.514.617-.514.103 0 .205.069.205.171 0 .035 0 .103-.034.137-.137.446-.24.857-.24 1.269 0 .24.034.582.102.788 0 .034.035.069.07.069.068 0 .548-.445.89-1.028-.308-.206-.48-.549-.48-.96 0-.72.446-1.097.858-1.097.343 0 .617.24.617.72 0 .308-.103.65-.274.96h.102a.77.77 0 0 0 .584-.24.293.293 0 0 1 .134-.117c.335-.425.83-.74 1.41-.74.48 0 .924.205.959.582.068.515-.378.618-.515.618l-.002-.002c-.138 0-.377-.035-.377-.172 0-.137.309-.068.274-.376-.034-.206-.24-.275-.446-.275-.686 0-1.13.891-1.028 1.611.034.275.171.583.445.583.206 0 .515-.308.652-.754.068-.274.343-.514.583-.514.103 0 .17.034.205.171 0 .069 0 .206-.137.652-.17.308-.171.48-.137.617.034.274.171.48.309.583.034.034.068.102.068.102 0 .069-.034.138-.137.138-.034 0-.068 0-.103-.035-.514-.205-.72-.548-.789-.891-.205.24-.445.377-.72.377-.445 0-.89-.411-.96-.926a1.609 1.609 0 0 1 .075-.649c-.203.13-.422.203-.623.203h-.17c-.447.652-.927 1.098-1.27 1.303a.896.896 0 0 1-.377.104c-.068 0-.171-.035-.205-.104-.095-.152-.156-.392-.193-.667-.481.527-1.145.805-1.453.805-.343 0-.548-.206-.582-.55v-.376c.102-.754.377-1.2.377-1.337a.074.074 0 0 0-.069-.07c-.24 0-1.028.824-1.166 1.373l-.103.445c-.068.309-.377.515-.582.515-.103 0-.172-.035-.206-.172v-.137l.046-.233c-.435.31-.87.508-1.075.508-.308 0-.48-.172-.514-.412-.206.274-.445.412-.754.412-.352 0-.696-.24-.862-.593-.244.275-.523.553-.852.764-.48.309-1.028.549-1.68.549-.582 0-1.097-.309-1.371-.583-.412-.377-.651-.96-.686-1.509-.205-1.68.823-3.84 2.4-4.8.378-.205.755-.343 1.132-.343zm9.77 3.291c-.104 0-.172.172-.172.343 0 .274.137.583.309.755a1.74 1.74 0 0 0 .102-.583c0-.343-.137-.515-.24-.515z"/></g></svg></span>Canva</span><span><span class="app" aria-hidden="true" style="background:linear-gradient(135deg,#3b3f45,#1b1c1f)"><svg viewBox="0 0 24 24"><g transform="translate(4.08 4.08) scale(0.66)"><path fill="#fff" d="M9.368 1.08h3.778l.318.55h1.082L24 18.004v.001l-2.036 3.47H13.69l.84 1.445h-.365l-.84-1.446H3.057l-.526-.923h-.652L0 17.298l.002-.001 2.41-4.176 2.23-1.288 3.69-6.39-.742-1.285L9.368 1.08zm2.224 5.652L5.066 18.008h6.25l-.723-1.246 6.808.006-5.809-10.036Z"/></g></svg></span>Affinity</span><span><span class="app" aria-hidden="true" style="background:#330000"><svg viewBox="0 0 24 24"><g transform="translate(0.00 0.00) scale(1)"><path fill="#FF9A00" d="M10.53 10.73c-.1-.31-.19-.61-.29-.92-.1-.31-.19-.6-.27-.89-.08-.28-.15-.54-.22-.78h-.02c-.09.43-.2.86-.34 1.29-.15.48-.3.98-.46 1.48-.14.51-.29.98-.44 1.4h2.54c-.06-.211-.14-.46-.23-.721-.09-.269-.18-.559-.27-.859zM19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.9c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zM14.7 16.83h-2.091c-.069.01-.139-.04-.159-.11l-.82-2.38H7.91l-.76 2.35c-.02.09-.1.15-.19.141H5.08c-.11 0-.14-.061-.11-.18L8.19 7.38c.03-.1.06-.21.1-.33.04-.21.06-.43.06-.65-.01-.05.03-.1.08-.11h2.59c.08 0 .12.03.13.08l3.65 10.3c.03.109 0 .16-.1.16zm3.4-.15c0 .11-.039.16-.129.16H16.01c-.1 0-.15-.061-.15-.16v-7.7c0-.1.041-.14.131-.14h1.98c.09 0 .129.05.129.14v7.7zm-.209-9.03c-.231.24-.571.37-.911.35-.33.01-.65-.12-.891-.35-.23-.25-.35-.58-.34-.92-.01-.34.12-.66.359-.89.242-.23.562-.35.892-.35.391 0 .689.12.91.35.22.24.34.56.33.89.01.34-.11.67-.349.92z"/></g></svg></span>Illustrator</span><span><span class="app" aria-hidden="true" style="background:#001E36"><svg viewBox="0 0 24 24"><path fill="#001E36" d="M0 0h24v24H0z"/><g transform="translate(0.00 0.00) scale(1)"><path fill="#31A8FF" d="M9.85 8.42c-.37-.15-.77-.21-1.18-.2-.26 0-.49 0-.68.01-.2-.01-.34 0-.41.01v3.36c.14.01.27.02.39.02h.53c.39 0 .78-.06 1.15-.18.32-.09.6-.28.82-.53.21-.25.31-.59.31-1.03.01-.31-.07-.62-.23-.89-.17-.26-.41-.46-.7-.57zM19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.899c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm-7.391 11.65c-.399.56-.959.98-1.609 1.22-.68.25-1.43.34-2.25.34-.24 0-.4 0-.5-.01s-.24-.01-.43-.01v3.209c.01.07-.04.131-.11.141H5.52c-.08 0-.12-.041-.12-.131V6.42c0-.07.03-.11.1-.11.17 0 .33 0 .56-.01.24-.01.49-.01.76-.02s.56-.01.87-.02c.31-.01.61-.01.91-.01.82 0 1.5.1 2.06.31.5.17.96.45 1.34.82.32.32.57.71.73 1.14.149.42.229.85.229 1.3.001.86-.199 1.57-.6 2.13zm7.091 3.89c-.28.4-.671.709-1.12.891-.49.209-1.09.318-1.811.318-.459 0-.91-.039-1.359-.129-.35-.061-.7-.17-1.02-.32-.07-.039-.121-.109-.111-.189v-1.74c0-.029.011-.07.041-.09.029-.02.06-.01.09.01.39.23.8.391 1.24.49.379.1.779.15 1.18.15.38 0 .65-.051.83-.141.16-.07.27-.24.27-.42 0-.141-.08-.27-.24-.4-.16-.129-.489-.279-.979-.471-.51-.18-.979-.42-1.42-.719-.31-.221-.569-.51-.761-.85-.159-.32-.239-.67-.229-1.021 0-.43.12-.84.341-1.21.25-.4.619-.72 1.049-.92.469-.239 1.059-.349 1.769-.349.41 0 .83.03 1.24.09.3.04.59.12.86.23.039.01.08.05.1.09.01.04.02.08.02.12v1.63c0 .04-.02.08-.05.1-.09.02-.14.02-.18 0-.3-.16-.62-.27-.96-.34-.37-.08-.74-.13-1.12-.13-.2-.01-.41.02-.601.07-.129.03-.24.1-.31.2-.05.08-.08.18-.08.27s.04.18.101.26c.09.11.209.2.34.27.229.12.47.23.709.33.541.18 1.061.43 1.541.73.33.209.6.49.789.83.16.318.24.67.23 1.029.011.471-.129.94-.389 1.331z"/></g></svg></span>Photoshop</span></div>
+            <p class="note-s">Os criativos e peças visuais foram desenvolvidos utilizando principalmente: Canva • Illustrator • Photoshop</p>
+          </div>
+          <div class="levels pre">
+            <div class="lvl"><div class="top"><span class="nm"><span class="app" aria-hidden="true" style="background:#fff"><svg viewBox="0 0 24 24"><g transform="translate(2.40 2.40) scale(0.8)"><path fill="#00C4CC" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM6.962 7.68c.754 0 1.337.549 1.405 1.2.069.583-.171 1.097-.822 1.406-.343.171-.48.172-.549.069-.034-.069 0-.137.069-.206.617-.514.617-.926.548-1.508-.034-.378-.308-.618-.583-.618-1.2 0-2.914 2.674-2.674 4.629.103.754.549 1.646 1.509 1.646.308 0 .65-.103.96-.24.5-.264.799-.47 1.097-.8-.073-.885.704-2.046 1.851-2.046.515 0 .926.205.96.583.068.514-.377.582-.514.582s-.378-.034-.378-.17c-.034-.138.309-.07.275-.378-.035-.206-.24-.274-.446-.274-.72 0-1.131.994-1.029 1.611.035.275.172.549.447.549.205 0 .514-.31.617-.755.068-.308.343-.514.583-.514.102 0 .17.034.205.171v.138c-.034.137-.137.548-.102.651 0 .069.034.171.17.171.092 0 .436-.18.777-.459.117-.59.253-1.298.253-1.357.034-.24.137-.48.617-.48.103 0 .171.034.205.171v.138l-.136.617c.445-.583 1.097-.994 1.508-.994.172 0 .309.102.309.274 0 .103 0 .274-.069.446-.137.377-.309.96-.412 1.474 0 .137.035.274.207.274.171 0 .685-.206 1.096-.754l.007-.004c-.002-.068-.007-.134-.007-.202 0-.411.035-.754.104-.994.068-.274.411-.514.617-.514.103 0 .205.069.205.171 0 .035 0 .103-.034.137-.137.446-.24.857-.24 1.269 0 .24.034.582.102.788 0 .034.035.069.07.069.068 0 .548-.445.89-1.028-.308-.206-.48-.549-.48-.96 0-.72.446-1.097.858-1.097.343 0 .617.24.617.72 0 .308-.103.65-.274.96h.102a.77.77 0 0 0 .584-.24.293.293 0 0 1 .134-.117c.335-.425.83-.74 1.41-.74.48 0 .924.205.959.582.068.515-.378.618-.515.618l-.002-.002c-.138 0-.377-.035-.377-.172 0-.137.309-.068.274-.376-.034-.206-.24-.275-.446-.275-.686 0-1.13.891-1.028 1.611.034.275.171.583.445.583.206 0 .515-.308.652-.754.068-.274.343-.514.583-.514.103 0 .17.034.205.171 0 .069 0 .206-.137.652-.17.308-.171.48-.137.617.034.274.171.48.309.583.034.034.068.102.068.102 0 .069-.034.138-.137.138-.034 0-.068 0-.103-.035-.514-.205-.72-.548-.789-.891-.205.24-.445.377-.72.377-.445 0-.89-.411-.96-.926a1.609 1.609 0 0 1 .075-.649c-.203.13-.422.203-.623.203h-.17c-.447.652-.927 1.098-1.27 1.303a.896.896 0 0 1-.377.104c-.068 0-.171-.035-.205-.104-.095-.152-.156-.392-.193-.667-.481.527-1.145.805-1.453.805-.343 0-.548-.206-.582-.55v-.376c.102-.754.377-1.2.377-1.337a.074.074 0 0 0-.069-.07c-.24 0-1.028.824-1.166 1.373l-.103.445c-.068.309-.377.515-.582.515-.103 0-.172-.035-.206-.172v-.137l.046-.233c-.435.31-.87.508-1.075.508-.308 0-.48-.172-.514-.412-.206.274-.445.412-.754.412-.352 0-.696-.24-.862-.593-.244.275-.523.553-.852.764-.48.309-1.028.549-1.68.549-.582 0-1.097-.309-1.371-.583-.412-.377-.651-.96-.686-1.509-.205-1.68.823-3.84 2.4-4.8.378-.205.755-.343 1.132-.343zm9.77 3.291c-.104 0-.172.172-.172.343 0 .274.137.583.309.755a1.74 1.74 0 0 0 .102-.583c0-.343-.137-.515-.24-.515z"/></g></svg></span>Canva</span><em>Avançado</em></div><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+            <div class="lvl"><div class="top"><span class="nm"><span class="app" aria-hidden="true" style="background:linear-gradient(135deg,#3b3f45,#1b1c1f)"><svg viewBox="0 0 24 24"><g transform="translate(4.08 4.08) scale(0.66)"><path fill="#fff" d="M9.368 1.08h3.778l.318.55h1.082L24 18.004v.001l-2.036 3.47H13.69l.84 1.445h-.365l-.84-1.446H3.057l-.526-.923h-.652L0 17.298l.002-.001 2.41-4.176 2.23-1.288 3.69-6.39-.742-1.285L9.368 1.08zm2.224 5.652L5.066 18.008h6.25l-.723-1.246 6.808.006-5.809-10.036Z"/></g></svg></span>Affinity</span><em>Avançado</em></div><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+            <div class="lvl"><div class="top"><span class="nm"><span class="app" aria-hidden="true" style="background:#330000"><svg viewBox="0 0 24 24"><g transform="translate(0.00 0.00) scale(1)"><path fill="#FF9A00" d="M10.53 10.73c-.1-.31-.19-.61-.29-.92-.1-.31-.19-.6-.27-.89-.08-.28-.15-.54-.22-.78h-.02c-.09.43-.2.86-.34 1.29-.15.48-.3.98-.46 1.48-.14.51-.29.98-.44 1.4h2.54c-.06-.211-.14-.46-.23-.721-.09-.269-.18-.559-.27-.859zM19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.9c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zM14.7 16.83h-2.091c-.069.01-.139-.04-.159-.11l-.82-2.38H7.91l-.76 2.35c-.02.09-.1.15-.19.141H5.08c-.11 0-.14-.061-.11-.18L8.19 7.38c.03-.1.06-.21.1-.33.04-.21.06-.43.06-.65-.01-.05.03-.1.08-.11h2.59c.08 0 .12.03.13.08l3.65 10.3c.03.109 0 .16-.1.16zm3.4-.15c0 .11-.039.16-.129.16H16.01c-.1 0-.15-.061-.15-.16v-7.7c0-.1.041-.14.131-.14h1.98c.09 0 .129.05.129.14v7.7zm-.209-9.03c-.231.24-.571.37-.911.35-.33.01-.65-.12-.891-.35-.23-.25-.35-.58-.34-.92-.01-.34.12-.66.359-.89.242-.23.562-.35.892-.35.391 0 .689.12.91.35.22.24.34.56.33.89.01.34-.11.67-.349.92z"/></g></svg></span>Illustrator</span><em>Avançado</em></div><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+            <div class="lvl"><div class="top"><span class="nm"><span class="app" aria-hidden="true" style="background:#001E36"><svg viewBox="0 0 24 24"><path fill="#001E36" d="M0 0h24v24H0z"/><g transform="translate(0.00 0.00) scale(1)"><path fill="#31A8FF" d="M9.85 8.42c-.37-.15-.77-.21-1.18-.2-.26 0-.49 0-.68.01-.2-.01-.34 0-.41.01v3.36c.14.01.27.02.39.02h.53c.39 0 .78-.06 1.15-.18.32-.09.6-.28.82-.53.21-.25.31-.59.31-1.03.01-.31-.07-.62-.23-.89-.17-.26-.41-.46-.7-.57zM19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.899c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm-7.391 11.65c-.399.56-.959.98-1.609 1.22-.68.25-1.43.34-2.25.34-.24 0-.4 0-.5-.01s-.24-.01-.43-.01v3.209c.01.07-.04.131-.11.141H5.52c-.08 0-.12-.041-.12-.131V6.42c0-.07.03-.11.1-.11.17 0 .33 0 .56-.01.24-.01.49-.01.76-.02s.56-.01.87-.02c.31-.01.61-.01.91-.01.82 0 1.5.1 2.06.31.5.17.96.45 1.34.82.32.32.57.71.73 1.14.149.42.229.85.229 1.3.001.86-.199 1.57-.6 2.13zm7.091 3.89c-.28.4-.671.709-1.12.891-.49.209-1.09.318-1.811.318-.459 0-.91-.039-1.359-.129-.35-.061-.7-.17-1.02-.32-.07-.039-.121-.109-.111-.189v-1.74c0-.029.011-.07.041-.09.029-.02.06-.01.09.01.39.23.8.391 1.24.49.379.1.779.15 1.18.15.38 0 .65-.051.83-.141.16-.07.27-.24.27-.42 0-.141-.08-.27-.24-.4-.16-.129-.489-.279-.979-.471-.51-.18-.979-.42-1.42-.719-.31-.221-.569-.51-.761-.85-.159-.32-.239-.67-.229-1.021 0-.43.12-.84.341-1.21.25-.4.619-.72 1.049-.92.469-.239 1.059-.349 1.769-.349.41 0 .83.03 1.24.09.3.04.59.12.86.23.039.01.08.05.1.09.01.04.02.08.02.12v1.63c0 .04-.02.08-.05.1-.09.02-.14.02-.18 0-.3-.16-.62-.27-.96-.34-.37-.08-.74-.13-1.12-.13-.2-.01-.41.02-.601.07-.129.03-.24.1-.31.2-.05.08-.08.18-.08.27s.04.18.101.26c.09.11.209.2.34.27.229.12.47.23.709.33.541.18 1.061.43 1.541.73.33.209.6.49.789.83.16.318.24.67.23 1.029.011.471-.129.94-.389 1.331z"/></g></svg></span>Photoshop</span><em>Básico</em></div><div class="bar"><i class="on"></i><i></i><i></i></div></div>
+          </div>
+        </div>
+        <span class="bigmark" aria-hidden="true">03</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 06 · QUEBRA NARRATIVA -->
+<section class="breaker" id="ponte" data-bg="night" data-dark="1" data-name="Processo">
+  <div class="bg" aria-hidden="true"><img id="breakImg" data-src="assets/cdc-3.jpg" alt="" width="1800" height="1013"></div>
+  <div class="wrap content">
+    <div></div>
+    <div>
+      <h2 class="rv pre blur">Ideias não<br>nascem prontas.</h2>
+      <p class="sec rv pre">Elas são construídas no caminho.</p>
+    </div>
+    <div class="quote"><p class="rv pre">“E talvez seja justamente isso que torna o processo tão importante quanto o resultado.”</p></div>
+  </div>
+</section>
+
+<!-- 07 · FOTOGRAFIA -->
+<section class="pf" id="fotografia" data-bg="sky" data-name="Fotografia" style="color:var(--navy)">
+  <div class="wrap pf-head">
+    <h2 class="rv pre">Foto<br>grafia</h2>
+    <div class="aside">
+      <p class="label muted rv pre">Capítulo 04 · Portfólio</p>
+      <p class="phrase rv pre">Meu olhar antes da minha câmera.</p>
+    </div>
+  </div>
+
+  <article class="proj" data-gallery="Capitania do Cheiro">
+    <div class="wrap"><div class="proj-bar rv pre"><h3>Capitania do Cheiro</h3><p class="credit"><span>Captura + edição: <b>Matheus Rossine</b></span><span class="eq">Samsung Galaxy S23 · para @capitaniadocheiro</span></p></div></div>
+    <div class="bleed rv pre zoom"><figure class="ph"><img data-src="assets/cdc-1.jpg" alt="Frascos de perfume da Capitania do Cheiro enquadrados em moldura branca entre coqueiros" width="1800" height="1013" data-speed="0.07"><figcaption class="glass">Capitania do Cheiro</figcaption></figure></div>
+    <div class="wrap"><div class="cgrid">
+      <figure class="ph c-a rv pre"><img data-src="assets/cdc-6.jpg" alt="Perfume de frasco verde-água na areia da praia" width="1350" height="1800"><figcaption class="glass">Capitania do Cheiro</figcaption></figure>
+      <figure class="ph c-b rv pre"><img data-src="assets/cdc-7.jpg" alt="Frasco escuro Leme na areia com o mar ao fundo" width="1350" height="1800"><figcaption class="glass">Capitania do Cheiro</figcaption></figure>
+      <figure class="ph c-c rv pre"><img data-src="assets/cdc-8.jpg" alt="Dois frascos Leme ao lado de um timão na praia" width="1350" height="1800"><figcaption class="glass">Capitania do Cheiro</figcaption></figure>
+      <figure class="ph c-d rv pre"><img data-src="assets/cdc-9.jpg" alt="Frascos dourados sobre pedra ao lado de um coco, com o mar ao fundo" width="1200" height="1800"><figcaption class="glass">Capitania do Cheiro</figcaption></figure>
+      <figure class="ph c-e rv pre"><img data-src="assets/cdc-12.jpg" alt="Mão segurando body splash contra o céu azul" width="1350" height="1800"><figcaption class="glass">Capitania do Cheiro</figcaption></figure>
+      <figure class="ph c-f rv pre"><img data-src="assets/cdc-4.jpg" alt="Mão segurando frasco preto e branco contra o céu" width="1350" height="1800"><figcaption class="glass">Capitania do Cheiro</figcaption></figure>
+      <p class="ctext rv pre">Registros feitos para a comunicação da Capitania do Cheiro: lançamentos, produtos e campanhas, pensados e produzidos no mobile.</p>
+      <figure class="ph c-h rv pre"><img data-src="assets/cdc-3.jpg" alt="Mão borrifando body splash laranja com coqueiros ao fundo" width="1800" height="1013"><figcaption class="glass">Capitania do Cheiro</figcaption></figure>
+      <figure class="ph c-i rv pre"><img data-src="assets/cdc-5.jpg" alt="Frascos de perfume vistos de cima sobre a grama" width="1350" height="1800"><figcaption class="glass">Capitania do Cheiro</figcaption></figure>
+      <figure class="ph c-j rv pre"><img data-src="assets/cdc-10.jpg" alt="Caixas coloridas da linha Capitania Kids organizadas em diagonal" width="1350" height="1800"><figcaption class="glass">Capitania Kids</figcaption></figure>
+    </div></div>
+  </article>
+
+  <article class="proj" data-gallery="Meu Quintal">
+    <div class="wrap"><div class="proj-bar rv pre"><h3>Meu Quintal</h3><p class="credit"><span>Captura + edição: <b>Matheus Rossine</b></span><span class="eq">Samsung Galaxy S23 · para @sigameuquintal</span></p></div></div>
+    <div class="carousel rv pre fromR">
+      <div class="track" id="qTrack" tabindex="0" aria-label="Fotos do Meu Quintal — arraste para o lado">
+        <figure class="ph"><img data-src="assets/quintal-1.jpg" alt="Prato servido em frigideira com cabo de madeira" width="1012" height="1800" draggable="false"><figcaption class="glass">Meu Quintal</figcaption></figure>
+        <figure class="ph"><img data-src="assets/quintal-2.jpg" alt="Bartender servindo drink laranja em taça" width="1350" height="1800" draggable="false"><figcaption class="glass">Meu Quintal</figcaption></figure>
+        <figure class="ph"><img data-src="assets/quintal-3.jpg" alt="Batatas fritas e carne servidas em frigideiras" width="1350" height="1800" draggable="false"><figcaption class="glass">Meu Quintal</figcaption></figure>
+        <figure class="ph"><img data-src="assets/quintal-4.jpg" alt="Atendente de boné bebendo diante do bar iluminado" width="1350" height="1800" draggable="false"><figcaption class="glass">Meu Quintal</figcaption></figure>
+        <figure class="ph"><img data-src="assets/quintal-5.jpg" alt="Mulher sorrindo à mesa sob luzes de varal à noite" width="1350" height="1800" draggable="false"><figcaption class="glass">Meu Quintal</figcaption></figure>
+        <figure class="ph"><img data-src="assets/quintal-6.jpg" alt="Mãos brindando com drink vermelho sob luz roxa" width="1350" height="1800" draggable="false"><figcaption class="glass">Meu Quintal</figcaption></figure>
+        <figure class="ph"><img data-src="assets/quintal-7.jpg" alt="Garrafa de cerveja sobre o balcão ao lado do cardápio" width="1350" height="1800" draggable="false"><figcaption class="glass">Meu Quintal</figcaption></figure>
+      </div>
+      <div class="wrap car-ui">
+        <div class="car-prog" aria-hidden="true"><i id="qProg"></i></div>
+        <div class="car-btns"><button type="button" class="glass" id="qPrev" aria-label="Foto anterior">←</button><button type="button" class="glass" id="qNext" aria-label="Próxima foto">→</button></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="proj" data-gallery="Santa Rosa">
+    <div class="wrap">
+      <div class="proj-bar rv pre"><h3>Santa Rosa</h3><p class="credit"><span>Captura + edição: <b>Matheus Rossine</b></span><span class="eq">Samsung Galaxy S23</span></p></div>
+      <div class="overlap">
+        <figure class="ph o1 rv pre" data-speed="0.04"><img data-src="assets/santarosa-1.jpg" alt="Colar de borboleta dourada em busto preto" width="1012" height="1800"><figcaption class="glass">Santa Rosa</figcaption></figure>
+        <figure class="ph o2 rv pre" data-speed="-0.03"><img data-src="assets/santarosa-5.jpg" alt="Mulher sorrindo apoiada no balcão da loja de acessórios" width="1013" height="1800"><figcaption class="glass">Santa Rosa</figcaption></figure>
+        <figure class="ph o3 rv pre" data-speed="0.06"><img data-src="assets/santarosa-2.jpg" alt="Detalhe de colares finos no pescoço" width="1013" height="1800"><figcaption class="glass">Santa Rosa</figcaption></figure>
+        <figure class="ph o4 rv pre" data-speed="-0.02"><img data-src="assets/santarosa-3.jpg" alt="Detalhe de pulseiras douradas no pulso" width="1013" height="1800"><figcaption class="glass">Santa Rosa</figcaption></figure>
+        <figure class="ph o5 rv pre" data-speed="0.03"><img data-src="assets/santarosa-4.jpg" alt="Anel com pedra rosa em caixa, com fundo rosa" width="1013" height="1800"><figcaption class="glass">Santa Rosa</figcaption></figure>
+      </div>
+    </div>
+  </article>
+
+
+  <article class="proj" data-gallery="Look da Julinha">
+    <div class="wrap">
+      <div class="proj-bar rv pre"><h3>Look da Julinha</h3><p class="credit"><span>Captação: <b>Matheus Rossine</b></span><span class="eq">Samsung Galaxy S23 · para @lookdajulinha</span></p></div>
+      <div class="jgrid">
+        <figure class="ph j1 rv pre"><img data-src="assets/julinha-1.jpg" alt="Modelo infantil desfilando na passarela com look estampado" width="1350" height="1800"><figcaption class="glass">Look da Julinha</figcaption></figure>
+        <figure class="ph j2 rv pre"><img data-src="assets/julinha-2.jpg" alt="Modelo de top rosa desfilando diante da plateia" width="1350" height="1800"><figcaption class="glass">Look da Julinha</figcaption></figure>
+        <figure class="ph j3 rv pre"><img data-src="assets/julinha-6.jpg" alt="Modelo de vestido amarelo posando no painel da marca" width="1012" height="1800"><figcaption class="glass">Look da Julinha</figcaption></figure>
+        <figure class="ph j4 rv pre"><img data-src="assets/julinha-4.jpg" alt="Modelo de vestido azul claro na passarela com luzes" width="1350" height="1800"><figcaption class="glass">Look da Julinha</figcaption></figure>
+        <figure class="ph j5 rv pre"><img data-src="assets/julinha-3.jpg" alt="Bastidores: modelo no camarim diante do espelho" width="1012" height="1800"><figcaption class="glass">Look da Julinha</figcaption></figure>
+        <figure class="ph j6 rv pre"><img data-src="assets/julinha-5.jpg" alt="Modelo com saia colorida em movimento na passarela" width="1013" height="1800"><figcaption class="glass">Look da Julinha</figcaption></figure>
+      </div>
+    </div>
+  </article>
+
+  <article class="proj" data-gallery="Institucional &amp; Ambientes">
+    <div class="wrap">
+      <div class="proj-bar rv pre"><h3>Institucional &amp; Ambientes</h3><p class="credit"><span class="eq">Retratos de equipe e ambientes</span></p></div>
+      <p class="sublabel">Institucional</p>
+      <div class="inst">
+        <figure class="ph rv pre"><img data-src="assets/inst-1.jpg" alt="Retrato institucional de colaboradora sorrindo, camiseta vermelha" width="1350" height="1800"><figcaption class="glass">Institucional</figcaption></figure>
+        <figure class="ph rv pre"><img data-src="assets/inst-2.jpg" alt="Retrato institucional de colaboradora com a mão no queixo" width="1350" height="1800"><figcaption class="glass">Institucional</figcaption></figure>
+        <figure class="ph rv pre"><img data-src="assets/inst-3.jpg" alt="Retrato institucional de colaboradora de óculos segurando o celular" width="1440" height="1800"><figcaption class="glass">Institucional</figcaption></figure>
+        <figure class="ph rv pre"><img data-src="assets/inst-4.jpg" alt="Retrato institucional de colaboradora de braços cruzados" width="1012" height="1800"><figcaption class="glass">Institucional</figcaption></figure>
+      </div>
+      <p class="sublabel">Ambientes</p>
+      <div class="amb">
+        <figure class="ph rv pre"><img data-src="assets/ambientes-2.jpg" alt="Mulher de branco sentada em um barco chamado Lara" width="1800" height="1012"><figcaption class="glass">Ambientes</figcaption></figure>
+        <figure class="ph rv pre"><img data-src="assets/ambientes-1.jpg" alt="Vista aérea da cidade com igreja em destaque e céu com nuvens" width="1013" height="1800" style="object-position:50% 72%"><figcaption class="glass">Ambientes</figcaption></figure>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- 08 · AUDIOVISUAL -->
+<section class="pf av" id="audiovisual" data-bg="orange" data-name="Audiovisual" style="color:var(--orange-ink)">
+  <div class="wrap pf-head">
+    <h2 class="rv pre" style="color:#fff">Audio<br>visual</h2>
+    <div class="aside">
+      <p class="phrase rv pre">Algumas ideias precisam sair do papel.</p>
+      <p class="body rv pre">Vídeos, campanhas, conteúdos e projetos desenvolvidos entre captação, edição e muita tentativa.</p>
+      <p class="body rv pre">Porque algumas histórias simplesmente funcionam melhor em movimento.</p>
+    </div>
+  </div>
+
+  <!-- Maui Rouge -->
+  <article class="proj wrap">
+    <div class="proj-bar rv pre"><h3>Maui Rouge</h3><p class="credit"><span>Direção criativa: <b>Matheus Rossine</b> + equipe</span><span class="eq">Captação + edição: Aladim Lucas</span></p></div>
+    <div class="vp wide rv pre zoom" data-video="assets/maui-rouge.mp4" data-poster="assets/maui-rouge-poster.jpg">
+      <video playsinline muted loop preload="none" aria-label="Vídeo Maui Rouge"></video>
+      <div class="ov"><span class="t">Maui<br>Rouge</span><div class="bottom"><button type="button" class="playbtn glass"><span class="pi"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span>Assistir com som</button><span class="hoverhint">Passe o mouse para prévia</span></div></div>
+    </div>
+    <div class="av-meta">
+      <p class="lead rv pre">Um projeto de direção criativa coletiva. Matheus participou da concepção e da direção criativa do vídeo; a captação e a edição foram feitas por Aladim Lucas.</p>
+      <div class="crew glass rv pre">
+        <div class="grp"><span class="k">Direção criativa</span>
+          <div class="people">
+            <a class="person me" href="https://www.instagram.com/matheusrossine/" target="_blank" rel="noopener"><span class="av"><svg viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span><span><b>Matheus Rossine</b><small>@matheusrossine</small></span></a>
+            <a class="person" href="https://www.instagram.com/daphnenicolete/" target="_blank" rel="noopener"><span class="av"><svg viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span><span><b>Daphne Nicolete</b><small>@daphnenicolete</small></span></a>
+            <a class="person" href="https://www.instagram.com/alanagabrielam/" target="_blank" rel="noopener"><span class="av"><svg viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span><span><b>Alana Gabriela</b><small>@alanagabrielam</small></span></a>
+            <a class="person" href="https://www.instagram.com/maduwithanu/" target="_blank" rel="noopener"><span class="av"><svg viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span><span><b>Madu</b><small>@maduwithanu</small></span></a>
+          </div>
+        </div>
+        <div class="grp"><span class="k">Captação e edição</span>
+          <div class="people"><a class="person" href="https://www.instagram.com/aladimlucas/" target="_blank" rel="noopener"><span class="av"><svg viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span><span><b>Aladim Lucas</b><small>@aladimlucas</small></span></a></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Dia das Mães -->
+  <article class="proj wrap">
+    <div class="proj-bar rv pre"><h3><span class="kick">Capitania do Cheiro</span>Dia das Mães</h3><p class="credit"><span>Roteiro, cenário + direção criativa: <b>Matheus Rossine</b></span><span class="eq">Captação: Alisson · Edição: Colina Tech</span></p></div>
+    <div class="vp wide rv pre zoom" data-video="assets/diamaes.mp4" data-poster="assets/diamaes-poster.jpg">
+      <video playsinline muted loop preload="none" aria-label="Vídeo da campanha de Dia das Mães da Capitania do Cheiro"></video>
+      <div class="ov"><span class="t">Dia das<br>Mães</span><div class="bottom"><button type="button" class="playbtn glass"><span class="pi"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span>Assistir com som</button><span class="hoverhint">Passe o mouse para prévia</span></div></div>
+    </div>
+    <div class="av-meta">
+      <p class="lead rv pre">Campanha de Dia das Mães da Capitania do Cheiro. Matheus assinou o roteiro, o cenário e a direção criativa; a captação foi de Alisson e a edição, da Colina Tech.</p>
+      <div class="crew glass rv pre">
+        <div class="grp"><span class="k">Roteiro, cenário e direção criativa</span><div class="people"><a class="person me" href="https://www.instagram.com/matheusrossine/" target="_blank" rel="noopener"><span class="av"><svg viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span><span><b>Matheus Rossine</b><small>@matheusrossine</small></span></a></div></div>
+        <div class="grp"><span class="k">Captação</span><div class="people"><a class="person" href="https://www.instagram.com/fotogralisson/" target="_blank" rel="noopener"><span class="av"><svg viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span><span><b>Alisson</b><small>@fotogralisson</small></span></a></div></div>
+        <div class="grp"><span class="k">Edição</span><div class="people"><a class="person" href="https://www.instagram.com/colinatech/" target="_blank" rel="noopener"><span class="av"><svg viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span><span><b>Colina Tech</b><small>@colinatech</small></span></a></div></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Meu Quintal -->
+  <article class="proj wrap">
+    <div class="proj-bar rv pre"><h3><span class="kick">Produção autoral</span>Meu Quintal</h3><p class="credit"><span>Produção, captação + edição: <b>Matheus Rossine</b></span><span class="eq">iPhone 16 · para @sigameuquintal</span></p></div>
+    <p class="sublabel rv pre">Destaques</p>
+    <div class="mq-high">
+      <div class="vp tall rv pre" data-video="assets/hl-1.mp4" data-poster="assets/hl-1-poster.jpg"><video playsinline muted loop preload="none" aria-label="Meu Quintal, destaque 1"></video><div class="ov"><span class="t">Destaque 01</span><div class="bottom"><button type="button" class="playbtn glass"><span class="pi"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span>Com som</button></div></div></div>
+      <div class="vp tall rv pre" data-video="assets/hl-2.mp4" data-poster="assets/hl-2-poster.jpg"><video playsinline muted loop preload="none" aria-label="Meu Quintal, destaque 2"></video><div class="ov"><span class="t">Destaque 02</span><div class="bottom"><button type="button" class="playbtn glass"><span class="pi"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span>Com som</button></div></div></div>
+      <div class="vp wide rv pre" data-video="assets/copa.mp4" data-poster="assets/copa-poster.jpg"><video playsinline muted loop preload="none" aria-label="Meu Quintal, Copa"></video><div class="ov"><span class="t">Copa</span><div class="bottom"><button type="button" class="playbtn glass"><span class="pi"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span>Assistir com som</button><span class="hoverhint">Passe o mouse para prévia</span></div></div></div>
+    </div>
+
+    <p class="sublabel rv pre" style="margin-top:clamp(60px,8vw,110px)">Carta de drinks · 13 vídeos</p>
+    <div class="drinks">
+      <div>
+        <ol class="menu-list" id="drinkList"></ol>
+        <p class="menu-hint">Escolha um drink para assistir.</p>
+      </div>
+      <div class="phone glass" id="phone">
+        <div class="now-t"><span id="drinkName">Brasil no copo</span><span id="drinkNum">01 / 13</span></div>
+        <div class="vp" id="drinkVp"><video id="drinkVideo" playsinline muted loop preload="none" aria-label="Vídeo do drink selecionado"></video></div>
+        <button type="button" class="snd glass dark" id="drinkSnd">Ativar som</button>
+      </div>
+    </div>
+  </article>
+
+  <!-- Look da Julinha -->
+  <article class="proj wrap">
+    <div class="proj-bar rv pre"><h3><span class="kick">Desfile</span>Look da Julinha</h3><p class="credit"><span>Captação: <b>Matheus Rossine</b></span><span class="eq">iPhone 16 · para @lookdajulinha</span></p></div>
+    <div class="jl">
+      <div class="vp tall rv pre" data-video="assets/julinha.mp4" data-poster="assets/julinha-poster.jpg"><video playsinline muted loop preload="none" aria-label="Desfile Look da Julinha"></video><div class="ov"><span class="t">Desfile</span><div class="bottom"><button type="button" class="playbtn glass"><span class="pi"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span>Assistir com som</button></div></div></div>
+      <div class="jl-txt">
+        <p class="lead rv pre">Registro do desfile do Look da Julinha: a passarela, os looks e o movimento das modelos, captados no celular.</p>
+        <div class="crew glass rv pre">
+          <div class="grp"><span class="k">Captação</span><div class="people"><a class="person me" href="https://www.instagram.com/matheusrossine/" target="_blank" rel="noopener"><span class="av"><svg viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span><span><b>Matheus Rossine</b><small>@matheusrossine</small></span></a></div></div>
+          <div class="grp"><span class="k">Marca</span><div class="people"><a class="person" href="https://www.instagram.com/lookdajulinha/" target="_blank" rel="noopener"><span class="av"><svg viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span><span><b>Look da Julinha</b><small>@lookdajulinha</small></span></a></div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- 09 · DESIGN -->
+<section class="pf ds" id="design" data-bg="navy" data-dark="1" data-name="Design" style="color:#F2F5FB">
+  <div class="wrap pf-head">
+    <h2 class="rv pre">Design</h2>
+    <div class="aside">
+      <p class="phrase rv pre">Quando uma ideia ganha forma.</p>
+      <p class="body rv pre">Identidades, campanhas, apresentações, peças digitais e experimentações visuais.</p>
+      <p class="body rv pre">Cada projeto começa com uma ideia — e termina quando ela consegue ser percebida por quem está do outro lado.</p>
+      <div class="toolchips rv pre"><span class="glass dark"><span class="app" aria-hidden="true" style="background:#fff"><svg viewBox="0 0 24 24"><g transform="translate(2.40 2.40) scale(0.8)"><path fill="#00C4CC" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM6.962 7.68c.754 0 1.337.549 1.405 1.2.069.583-.171 1.097-.822 1.406-.343.171-.48.172-.549.069-.034-.069 0-.137.069-.206.617-.514.617-.926.548-1.508-.034-.378-.308-.618-.583-.618-1.2 0-2.914 2.674-2.674 4.629.103.754.549 1.646 1.509 1.646.308 0 .65-.103.96-.24.5-.264.799-.47 1.097-.8-.073-.885.704-2.046 1.851-2.046.515 0 .926.205.96.583.068.514-.377.582-.514.582s-.378-.034-.378-.17c-.034-.138.309-.07.275-.378-.035-.206-.24-.274-.446-.274-.72 0-1.131.994-1.029 1.611.035.275.172.549.447.549.205 0 .514-.31.617-.755.068-.308.343-.514.583-.514.102 0 .17.034.205.171v.138c-.034.137-.137.548-.102.651 0 .069.034.171.17.171.092 0 .436-.18.777-.459.117-.59.253-1.298.253-1.357.034-.24.137-.48.617-.48.103 0 .171.034.205.171v.138l-.136.617c.445-.583 1.097-.994 1.508-.994.172 0 .309.102.309.274 0 .103 0 .274-.069.446-.137.377-.309.96-.412 1.474 0 .137.035.274.207.274.171 0 .685-.206 1.096-.754l.007-.004c-.002-.068-.007-.134-.007-.202 0-.411.035-.754.104-.994.068-.274.411-.514.617-.514.103 0 .205.069.205.171 0 .035 0 .103-.034.137-.137.446-.24.857-.24 1.269 0 .24.034.582.102.788 0 .034.035.069.07.069.068 0 .548-.445.89-1.028-.308-.206-.48-.549-.48-.96 0-.72.446-1.097.858-1.097.343 0 .617.24.617.72 0 .308-.103.65-.274.96h.102a.77.77 0 0 0 .584-.24.293.293 0 0 1 .134-.117c.335-.425.83-.74 1.41-.74.48 0 .924.205.959.582.068.515-.378.618-.515.618l-.002-.002c-.138 0-.377-.035-.377-.172 0-.137.309-.068.274-.376-.034-.206-.24-.275-.446-.275-.686 0-1.13.891-1.028 1.611.034.275.171.583.445.583.206 0 .515-.308.652-.754.068-.274.343-.514.583-.514.103 0 .17.034.205.171 0 .069 0 .206-.137.652-.17.308-.171.48-.137.617.034.274.171.48.309.583.034.034.068.102.068.102 0 .069-.034.138-.137.138-.034 0-.068 0-.103-.035-.514-.205-.72-.548-.789-.891-.205.24-.445.377-.72.377-.445 0-.89-.411-.96-.926a1.609 1.609 0 0 1 .075-.649c-.203.13-.422.203-.623.203h-.17c-.447.652-.927 1.098-1.27 1.303a.896.896 0 0 1-.377.104c-.068 0-.171-.035-.205-.104-.095-.152-.156-.392-.193-.667-.481.527-1.145.805-1.453.805-.343 0-.548-.206-.582-.55v-.376c.102-.754.377-1.2.377-1.337a.074.074 0 0 0-.069-.07c-.24 0-1.028.824-1.166 1.373l-.103.445c-.068.309-.377.515-.582.515-.103 0-.172-.035-.206-.172v-.137l.046-.233c-.435.31-.87.508-1.075.508-.308 0-.48-.172-.514-.412-.206.274-.445.412-.754.412-.352 0-.696-.24-.862-.593-.244.275-.523.553-.852.764-.48.309-1.028.549-1.68.549-.582 0-1.097-.309-1.371-.583-.412-.377-.651-.96-.686-1.509-.205-1.68.823-3.84 2.4-4.8.378-.205.755-.343 1.132-.343zm9.77 3.291c-.104 0-.172.172-.172.343 0 .274.137.583.309.755a1.74 1.74 0 0 0 .102-.583c0-.343-.137-.515-.24-.515z"/></g></svg></span>Canva</span><span class="glass dark"><span class="app" aria-hidden="true" style="background:#330000"><svg viewBox="0 0 24 24"><g transform="translate(0.00 0.00) scale(1)"><path fill="#FF9A00" d="M10.53 10.73c-.1-.31-.19-.61-.29-.92-.1-.31-.19-.6-.27-.89-.08-.28-.15-.54-.22-.78h-.02c-.09.43-.2.86-.34 1.29-.15.48-.3.98-.46 1.48-.14.51-.29.98-.44 1.4h2.54c-.06-.211-.14-.46-.23-.721-.09-.269-.18-.559-.27-.859zM19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.9c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zM14.7 16.83h-2.091c-.069.01-.139-.04-.159-.11l-.82-2.38H7.91l-.76 2.35c-.02.09-.1.15-.19.141H5.08c-.11 0-.14-.061-.11-.18L8.19 7.38c.03-.1.06-.21.1-.33.04-.21.06-.43.06-.65-.01-.05.03-.1.08-.11h2.59c.08 0 .12.03.13.08l3.65 10.3c.03.109 0 .16-.1.16zm3.4-.15c0 .11-.039.16-.129.16H16.01c-.1 0-.15-.061-.15-.16v-7.7c0-.1.041-.14.131-.14h1.98c.09 0 .129.05.129.14v7.7zm-.209-9.03c-.231.24-.571.37-.911.35-.33.01-.65-.12-.891-.35-.23-.25-.35-.58-.34-.92-.01-.34.12-.66.359-.89.242-.23.562-.35.892-.35.391 0 .689.12.91.35.22.24.34.56.33.89.01.34-.11.67-.349.92z"/></g></svg></span>Illustrator</span><span class="glass dark"><span class="app" aria-hidden="true" style="background:#001E36"><svg viewBox="0 0 24 24"><path fill="#001E36" d="M0 0h24v24H0z"/><g transform="translate(0.00 0.00) scale(1)"><path fill="#31A8FF" d="M9.85 8.42c-.37-.15-.77-.21-1.18-.2-.26 0-.49 0-.68.01-.2-.01-.34 0-.41.01v3.36c.14.01.27.02.39.02h.53c.39 0 .78-.06 1.15-.18.32-.09.6-.28.82-.53.21-.25.31-.59.31-1.03.01-.31-.07-.62-.23-.89-.17-.26-.41-.46-.7-.57zM19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.899c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm-7.391 11.65c-.399.56-.959.98-1.609 1.22-.68.25-1.43.34-2.25.34-.24 0-.4 0-.5-.01s-.24-.01-.43-.01v3.209c.01.07-.04.131-.11.141H5.52c-.08 0-.12-.041-.12-.131V6.42c0-.07.03-.11.1-.11.17 0 .33 0 .56-.01.24-.01.49-.01.76-.02s.56-.01.87-.02c.31-.01.61-.01.91-.01.82 0 1.5.1 2.06.31.5.17.96.45 1.34.82.32.32.57.71.73 1.14.149.42.229.85.229 1.3.001.86-.199 1.57-.6 2.13zm7.091 3.89c-.28.4-.671.709-1.12.891-.49.209-1.09.318-1.811.318-.459 0-.91-.039-1.359-.129-.35-.061-.7-.17-1.02-.32-.07-.039-.121-.109-.111-.189v-1.74c0-.029.011-.07.041-.09.029-.02.06-.01.09.01.39.23.8.391 1.24.49.379.1.779.15 1.18.15.38 0 .65-.051.83-.141.16-.07.27-.24.27-.42 0-.141-.08-.27-.24-.4-.16-.129-.489-.279-.979-.471-.51-.18-.979-.42-1.42-.719-.31-.221-.569-.51-.761-.85-.159-.32-.239-.67-.229-1.021 0-.43.12-.84.341-1.21.25-.4.619-.72 1.049-.92.469-.239 1.059-.349 1.769-.349.41 0 .83.03 1.24.09.3.04.59.12.86.23.039.01.08.05.1.09.01.04.02.08.02.12v1.63c0 .04-.02.08-.05.1-.09.02-.14.02-.18 0-.3-.16-.62-.27-.96-.34-.37-.08-.74-.13-1.12-.13-.2-.01-.41.02-.601.07-.129.03-.24.1-.31.2-.05.08-.08.18-.08.27s.04.18.101.26c.09.11.209.2.34.27.229.12.47.23.709.33.541.18 1.061.43 1.541.73.33.209.6.49.789.83.16.318.24.67.23 1.029.011.471-.129.94-.389 1.331z"/></g></svg></span>Photoshop</span><span class="glass dark"><span class="app" aria-hidden="true" style="background:linear-gradient(135deg,#3b3f45,#1b1c1f)"><svg viewBox="0 0 24 24"><g transform="translate(4.08 4.08) scale(0.66)"><path fill="#fff" d="M9.368 1.08h3.778l.318.55h1.082L24 18.004v.001l-2.036 3.47H13.69l.84 1.445h-.365l-.84-1.446H3.057l-.526-.923h-.652L0 17.298l.002-.001 2.41-4.176 2.23-1.288 3.69-6.39-.742-1.285L9.368 1.08zm2.224 5.652L5.066 18.008h6.25l-.723-1.246 6.808.006-5.809-10.036Z"/></g></svg></span>Affinity</span></div>
+    </div>
+  </div>
+  <article class="proj wrap" data-gallery="Design · Capitania do Cheiro">
+    <div class="proj-bar rv pre"><h3>Capitania do Cheiro</h3><p class="credit"><span>Peças digitais · lançamentos · campanhas</span></p></div>
+    <figure class="ph banner rv pre zoom"><img data-src="assets/design-banner-23.jpg" alt="Banner Capitania Kids com caixas de colônia sobre nuvens" width="1920" height="1080"><figcaption class="glass">Banner · Capitania Kids</figcaption></figure>
+    <div class="stories">
+      <figure class="ph rv pre"><img data-src="assets/design-19.jpg" alt="Story de lançamento do Body Splash Água Marinha Femme" width="1012" height="1800"><figcaption class="glass">Lançamento · Água Marinha</figcaption></figure>
+      <figure class="ph rv pre"><img data-src="assets/design-27.jpg" alt="Story Duelo de Body Splash, Color Orange e Brisa Verde" width="1012" height="1800"><figcaption class="glass">Duelo de Body Splash</figcaption></figure>
+      <figure class="ph rv pre"><img data-src="assets/design-38.jpg" alt="Story de lançamento do perfume Capitania Black 100ml" width="1012" height="1800"><figcaption class="glass">Lançamento · Capitania Black</figcaption></figure>
+      <figure class="ph rv pre"><img data-src="assets/design-4.jpg" alt="Story de lançamento do Body Splash Marina" width="1012" height="1800"><figcaption class="glass">Lançamento · Marina</figcaption></figure>
+      <figure class="ph rv pre"><img data-src="assets/design-9567.jpg" alt="Peça 15% off da Maratona do Dia do Consumidor" width="1012" height="1800"><figcaption class="glass">Dia do Consumidor</figcaption></figure>
+    </div>
+    <div class="posts">
+      <figure class="ph rv pre"><img data-src="assets/design-pascoa-1.jpg" alt="Post de Páscoa com ilustrações de coelho, cesta e ovo em laranja" width="1179" height="1465"><figcaption class="glass">Páscoa</figcaption></figure>
+      <figure class="ph rv pre"><img data-src="assets/design-pascoa-2.jpg" alt="Post Sorteio de Super Cesta de Páscoa" width="1179" height="1471"><figcaption class="glass">Páscoa · Sorteio</figcaption></figure>
+      <div class="txt rv pre"><p class="label">Campanha de Páscoa</p><p>Postagens para o feed: da expectativa (“fique de olho”) ao anúncio do sorteio.</p></div>
+    </div>
+  </article>
+</section>
+
+<!-- 10 · ENCERRAMENTO -->
+<section class="end" id="contato" data-bg="white" data-name="Contato">
+  <svg class="doodle d1 draw" viewBox="0 0 80 80" fill="none" aria-hidden="true"><path d="M40 6 L47 30 L73 32 L52 47 L60 73 L40 57 L20 73 L28 47 L7 32 L33 30 Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round" style="--len:260"/></svg>
+  <svg class="doodle d2 draw" viewBox="0 0 120 60" fill="none" aria-hidden="true"><path d="M4 40 C 20 5, 34 5, 40 30 S 62 55, 70 25 S 96 0, 116 30" stroke="currentColor" stroke-width="3" stroke-linecap="round" style="--len:220"/></svg>
+  <div class="wrap">
+    <p class="label rv pre" style="color:var(--orange)">Capítulo 05 · Futuro</p>
+    <h2 class="rv pre" style="margin-top:18px">Ainda estou<br><span class="o">criando.</span></h2>
+    <div class="story">
+      <p class="rv pre">Aquela criança continua aqui.</p>
+      <p class="rv pre">Ainda inventando, testando, fotografando, gravando, desenhando e transformando ideias em alguma coisa.</p>
+      <p class="rv pre">A diferença é que agora eu sei que isso tem um nome.</p>
+      <p class="pub rv pre">Publicidade.</p>
+    </div>
+    <div class="sign">
+      <div>
+        <p class="big rv pre">matheus<br>rossine</p>
+        <p class="disc rv pre">Publicidade • Audiovisual • Fotografia • Design</p>
+      </div>
+      <div class="contact rv pre">
+        <a class="btn glass" href="https://www.instagram.com/matheusrossine/" target="_blank" rel="noopener">
+          <span><span class="k">Instagram</span><br><span class="v">@matheusrossine</span></span>
+          <span class="icons"><span class="ig" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span><span class="arrow" aria-hidden="true">→</span></span>
+        </a>
+      </div>
+    </div>
+    <footer><span>© 2026 Matheus Rossine</span><span>ideias em movimento.</span></footer>
+  </div>
+</section>
+
+</main>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Visualizar foto">
+  <p class="lcap" id="lbCap"></p>
+  <img id="lbImg" alt="">
+  <div class="ctrl glass dark">
+    <button type="button" id="lbPrev" aria-label="Anterior">←</button>
+    <span class="count" id="lbCount"></span>
+    <button type="button" id="lbNext" aria-label="Próxima">→</button>
+    <button type="button" id="lbClose">Fechar</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>window.__DRINKS__=[{"name": "Brasil no copo", "src": "assets/drink-01.mp4", "poster": "assets/drink-01-poster.jpg"}, {"name": "Cosmopolitan", "src": "assets/drink-02.mp4", "poster": "assets/drink-02-poster.jpg"}, {"name": "Fitzgerald", "src": "assets/drink-03.mp4", "poster": "assets/drink-03-poster.jpg"}, {"name": "Moscow Mule", "src": "assets/drink-04.mp4", "poster": "assets/drink-04-poster.jpg"}, {"name": "Penicilin", "src": "assets/drink-05.mp4", "poster": "assets/drink-05-poster.jpg"}, {"name": "Cajuína ardente", "src": "assets/drink-06.mp4", "poster": "assets/drink-06-poster.jpg"}, {"name": "Aperol", "src": "assets/drink-07.mp4", "poster": "assets/drink-07-poster.jpg"}, {"name": "Gin tônica", "src": "assets/drink-08.mp4", "poster": "assets/drink-08-poster.jpg"}, {"name": "Gin Santo", "src": "assets/drink-09.mp4", "poster": "assets/drink-09-poster.jpg"}, {"name": "Fitzgerald · take 2", "src": "assets/drink-10.mp4", "poster": "assets/drink-10-poster.jpg"}, {"name": "Mojito", "src": "assets/drink-11.mp4", "poster": "assets/drink-11-poster.jpg"}, {"name": "Caju com rapadura", "src": "assets/drink-12.mp4", "poster": "assets/drink-12-poster.jpg"}, {"name": "Caipirinha", "src": "assets/drink-13.mp4", "poster": "assets/drink-13-poster.jpg"}];</script>
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+  /* ---------- Capa: letras ---------- */
+  $$('[data-split]').forEach((el, li) => {
+    const t = el.textContent.trim(); el.textContent = '';
+    [...t].forEach((c, i) => {
+      const s = document.createElement('span'); s.className = 'ch'; s.textContent = c;
+      s.style.animationDelay = (0.25 + li * 0.2 + i * 0.05) + 's'; s.setAttribute('aria-hidden', 'true'); el.appendChild(s);
+    });
+  });
+
+  /* ---------- Carregamento sob demanda (imagens e vídeos) ---------- */
+  const loadImg = img => { if (!img.dataset.src) return; img.src = img.dataset.src; img.removeAttribute('data-src'); };
+  const lazyImgs = $$('img[data-src]');
+  lazyImgs.forEach(img => img.addEventListener('load', () => img.style.opacity = '', { once: true }));
+  const imgIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { loadImg(e.target); imgIO.unobserve(e.target); } }), { rootMargin: '1400px 0px 1400px 0px' });
+  lazyImgs.forEach(img => imgIO.observe(img));
+  // depois que a página carrega, busca o resto aos poucos
+  addEventListener('load', () => {
+    let i = 0; const rest = () => { const left = lazyImgs.filter(im => im.dataset.src); if (!left.length) return; loadImg(left[0]); i++; setTimeout(rest, 250); };
+    setTimeout(rest, 2500);
+  });
+
+  /* ---------- Smooth scroll (só mouse/trackpad) ---------- */
+  let lenis = null;
+  if (!reduce && fine && window.Lenis) {
+    try {
+      lenis = new Lenis({ duration: 1.15, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true });
+      const raf = t => { lenis.raf(t); requestAnimationFrame(raf); }; requestAnimationFrame(raf);
+    } catch (e) { lenis = null; }
+  }
+  const goTo = hash => {
+    const el = document.querySelector(hash); if (!el) return;
+    if (lenis) lenis.scrollTo(el, { offset: 0, duration: 1.6 });
+    else window.scrollTo({ top: el.getBoundingClientRect().top + scrollY, behavior: reduce ? 'auto' : 'smooth' });
+  };
+
+  /* ---------- Menu mobile ---------- */
+  const mmenu = $('#mmenu'), mbtn = $('#mbtn');
+  const setMenu = open => {
+    mmenu.classList.toggle('open', open); mbtn.setAttribute('aria-expanded', String(open)); mbtn.textContent = open ? 'Fechar' : 'Menu';
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  };
+  mbtn.addEventListener('click', () => setMenu(!mmenu.classList.contains('open')));
+  mmenu.addEventListener('click', e => { if (e.target === mmenu) setMenu(false); });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && mmenu.classList.contains('open')) setMenu(false); });
+
+  $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+    const h = a.getAttribute('href'); if (h.length < 2) return;
+    e.preventDefault();
+    const wasOpen = mmenu.classList.contains('open');
+    if (wasOpen) { setMenu(false); setTimeout(() => goTo(h), 60); } else goTo(h);
+  }));
+
+  /* ---------- Reveal ---------- */
+  const vh = () => innerHeight;
+  const rvs = $$('.rv');
+  rvs.forEach(el => { if (reduce || el.getBoundingClientRect().top < vh() * 0.95) el.classList.remove('pre'); });
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove('pre'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+  rvs.filter(el => el.classList.contains('pre')).forEach((el, i) => { el.style.transitionDelay = ((i % 4) * 0.07) + 's'; io.observe(el); });
+  const dio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); dio.unobserve(e.target); } }), { threshold: 0.3 });
+  $$('.draw').forEach(d => dio.observe(d));
+  const lio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove('pre'); lio.unobserve(e.target); } }), { threshold: 0.4 });
+  $$('.levels').forEach(l => reduce ? l.classList.remove('pre') : lio.observe(l));
+
+  /* ---------- Seção ativa: cor de fundo + navegação ---------- */
+  const sections = $$('[data-bg]');
+  const navItems = $$('.nav a.item');
+  const mnow = $('#mnow'), dots = $('#dots');
+  const navMap = { inicio: null, historia: 'sobre', sobre: 'sobre', agora: 'sobre', skills: 'skills', ponte: 'skills', fotografia: 'fotografia', audiovisual: 'audiovisual', design: 'design', contato: 'contato' };
+  sections.forEach(s => {
+    const a = document.createElement('a'); a.href = '#' + s.id; a.title = s.dataset.name; a.dataset.for = s.id; dots.appendChild(a);
+    a.addEventListener('click', e => { e.preventDefault(); goTo('#' + s.id); });
+  });
+  let current = '';
+  const setSection = s => {
+    if (s.id === current) return; current = s.id;
+    document.body.dataset.bg = s.dataset.bg;
+    document.body.classList.toggle('darknav', !!s.dataset.dark);
+    const key = navMap[s.id];
+    navItems.forEach(a => a.classList.toggle('active', a.dataset.target === key));
+    $$('a', dots).forEach(a => a.classList.toggle('active', a.dataset.for === s.id));
+    mnow.textContent = s.id === 'inicio' ? '' : s.dataset.name;
+  };
+
+  /* ---------- Scroll: progresso, parallax, efeitos ---------- */
+  const speeds = $$('[data-speed]');
+  const bar = $('#progress'), nav = $('#nav');
+  const breakImg = $('#breakImg'), breaker = $('#ponte');
+  const tl = $('#toolsLine');
+  const words = tl.textContent.trim().split(/\s+/); tl.textContent = '';
+  words.forEach((w, i) => { const s = document.createElement('span'); s.className = 'w' + (i >= 2 ? ' acc' : ''); s.textContent = w + ' '; s.setAttribute('aria-hidden', 'true'); tl.appendChild(s); });
+  const wEls = $$('.w', tl);
+  const heroPhoto = $('.hero-photo img');
+  let lastY = 0, ticking = false;
+  const onScroll = () => {
+    ticking = false;
+    const y = scrollY, H = vh();
+    const max = document.documentElement.scrollHeight - H;
+    bar.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
+    for (const s of sections) { const r = s.getBoundingClientRect(); if (r.top <= 64 + 1 && r.bottom > 64) { setSection(s); break; } }
+    if (nav) { if (y > 300 && y > lastY + 4) nav.classList.add('hide'); else if (y < lastY - 4 || y < 300) nav.classList.remove('hide'); }
+    lastY = y;
+    if (reduce) { wEls.forEach(w => w.classList.add('lit')); return; }
+    if (y < H && heroPhoto) heroPhoto.style.transform = `translateY(${(y * 0.12).toFixed(1)}px)`;
+    speeds.forEach(el => {
+      const r = el.getBoundingClientRect(); if (r.bottom < -200 || r.top > H + 200) return;
+      const c = r.top + r.height / 2 - H / 2;
+      el.style.transform = `translate3d(0,${(-c * parseFloat(el.dataset.speed)).toFixed(1)}px,0)`;
+    });
+    const tr = tl.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, (H * 0.9 - tr.top) / (H * 0.35)));
+    const n = Math.round(p * wEls.length);
+    wEls.forEach((w, i) => w.classList.toggle('lit', i < n));
+    const br = breaker.getBoundingClientRect();
+    if (br.bottom > -50 && br.top < H + 50) {
+      const bp = Math.min(1, Math.max(0, (H - br.top) / (br.height + H)));
+      const k = Math.min(1, bp * 1.7);
+      breakImg.style.transform = `scale(${(1.18 - 0.16 * bp).toFixed(3)}) translateY(${((bp - 0.5) * -40).toFixed(1)}px)`;
+      breakImg.style.filter = `grayscale(${(1 - k).toFixed(2)}) brightness(${(0.45 + 0.12 * k).toFixed(2)})`;
+    }
+  };
+  const req = () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } };
+  if (lenis) lenis.on('scroll', req); else addEventListener('scroll', req, { passive: true });
+  addEventListener('resize', () => { req(); placeSel(); });
+  setSection(sections[0]); onScroll();
+
+  /* ---------- Capa: moldura de seleção em volta do nome ---------- */
+  const hero = $('#inicio'), selbox = $('#selbox'), w1 = $('#w1'), w2 = $('#w2'), dim = $('#dim');
+  function placeSel() {
+    const hr = hero.getBoundingClientRect();
+    const a = w1.getBoundingClientRect(), b = w2.getBoundingClientRect();
+    const pad = Math.max(10, innerWidth * 0.012);
+    const L = Math.min(a.left, b.left) - pad, T = Math.min(a.top, b.top) - pad * .6;
+    const R = Math.max(a.right, b.right) + pad, B = Math.max(a.bottom, b.bottom) + pad * .6;
+    Object.assign(selbox.style, { left: (L - hr.left) + 'px', top: (T - hr.top) + 'px', width: (R - L) + 'px', height: (B - T) + 'px' });
+    dim.textContent = Math.round(R - L) + ' × ' + Math.round(B - T);
+  }
+  placeSel(); document.fonts && document.fonts.ready.then(placeSel); setTimeout(placeSel, 1800);
+
+  /* ---------- Capa: menu, ferramentas e digitação ---------- */
+  if (!reduce) {
+    const items = $$('#uiMenu .it'); let mi = 0;
+    setInterval(() => { items[mi].classList.remove('on'); mi = (mi + 1) % items.length; items[mi].classList.add('on'); }, 1900);
+    const tools = $$('#toolbar .tl'); let ti = 0;
+    setInterval(() => { tools[ti].classList.remove('on'); ti = (ti + 1) % tools.length; tools[ti].classList.add('on'); }, 1400);
+  }
+  const typed = $('#typed');
+  const phrases = ['ideias em movimento.', 'publicidade + criatividade.', 'da criança criativa ao publicitário.'];
+  let pi = 0, ci = 0, del = false;
+  const type = () => {
+    const ph = phrases[pi];
+    typed.textContent = ph.slice(0, ci);
+    if (!del && ci < ph.length) ci++; else if (!del) { del = true; return setTimeout(type, 1800); }
+    else if (ci > 0) ci--; else { del = false; pi = (pi + 1) % phrases.length; }
+    setTimeout(type, del ? 28 : 60);
+  };
+  if (reduce) typed.textContent = phrases[0]; else setTimeout(type, 2200);
+
+  /* ---------- Capa: cursores ---------- */
+  const c1 = $('#cur1');
+  if (!reduce) {
+    let t0 = performance.now();
+    const loop = now => {
+      const hr = hero.getBoundingClientRect();
+      if (hr.bottom > 0) {
+        const t = (now - t0) / 1000;
+        const W = hero.clientWidth, H = hero.clientHeight;
+        const x = Math.min(W - 170, W * (0.5 + 0.3 * Math.sin(t * 0.42) + 0.06 * Math.sin(t * 1.3)));
+        const yv = H * (0.46 + 0.22 * Math.sin(t * 0.61 + 1.2) + 0.04 * Math.cos(t * 1.7));
+        c1.style.transform = `translate3d(${x.toFixed(1)}px,${yv.toFixed(1)}px,0)`;
+      }
+      requestAnimationFrame(loop);
+    };
+    requestAnimationFrame(loop);
+  } else c1.style.transform = 'translate3d(60vw,40vh,0)';
+  const c2 = $('#cur2');
+  if (fine && !reduce) {
+    hero.addEventListener('pointermove', e => {
+      const hr = hero.getBoundingClientRect();
+      c2.classList.add('show'); c2.style.transform = `translate3d(${e.clientX - hr.left + 14}px,${e.clientY - hr.top + 14}px,0)`;
+    });
+    hero.addEventListener('pointerleave', () => c2.classList.remove('show'));
+    const lenses = $$('.lens');
+    addEventListener('pointermove', e => {
+      if (scrollY > innerHeight) return;
+      const x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5;
+      lenses.forEach(b => { const m = +b.dataset.mouse; b.style.translate = `${(x * m).toFixed(1)}px ${(y * m).toFixed(1)}px`; });
+    }, { passive: true });
+  }
+
+  /* ---------- Carrossel Meu Quintal (fotos) ---------- */
+  const track = $('#qTrack'), prog = $('#qProg');
+  const step = () => (track.querySelector('.ph')?.getBoundingClientRect().width || 300) + 16;
+  $('#qNext').addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+  $('#qPrev').addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+  const upd = () => {
+    const max = track.scrollWidth - track.clientWidth; const vis = track.clientWidth / track.scrollWidth;
+    prog.style.width = (vis * 100) + '%';
+    prog.style.transform = `translateX(${max > 0 ? (track.scrollLeft / max) * ((1 - vis) / vis) * 100 : 0}%)`;
+  };
+  track.addEventListener('scroll', upd, { passive: true }); addEventListener('resize', upd); upd();
+  let down = false, sx = 0, sl = 0, moved = false;
+  track.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; down = true; moved = false; sx = e.clientX; sl = track.scrollLeft; track.classList.add('dragging'); });
+  addEventListener('pointermove', e => { if (!down) return; const dx = e.clientX - sx; if (Math.abs(dx) > 4) moved = true; track.scrollLeft = sl - dx; });
+  addEventListener('pointerup', () => { if (!down) return; down = false; track.classList.remove('dragging'); });
+  track.addEventListener('click', e => { if (moved) { e.stopPropagation(); e.preventDefault(); moved = false; } }, true);
+  $$('.track,.stories,.menu-list').forEach(s => s.setAttribute('data-lenis-prevent-wheel', ''));
+
+  /* ---------- Lightbox ---------- */
+  const lb = $('#lb'), lbImg = $('#lbImg'), lbCap = $('#lbCap'), lbCount = $('#lbCount');
+  let list = [], idx = 0;
+  const show = () => {
+    const im = list[idx]; loadImg(im); lbImg.src = im.currentSrc || im.src; lbImg.alt = im.alt;
+    lbCap.textContent = im.closest('[data-gallery]')?.dataset.gallery || '';
+    lbCount.textContent = (idx + 1) + ' / ' + list.length;
+  };
+  $$('.ph').forEach(f => f.addEventListener('click', () => {
+    const img = f.querySelector('img'); if (!img) return;
+    const g = f.closest('[data-gallery]');
+    list = g ? $$('.ph img', g) : [img]; idx = list.indexOf(img);
+    show(); lb.classList.add('open'); lenis && lenis.stop(); document.documentElement.style.overflow = 'hidden';
+  }));
+  const close = () => { lb.classList.remove('open'); lenis && lenis.start(); document.documentElement.style.overflow = ''; };
+  $('#lbClose').addEventListener('click', close);
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+  $('#lbNext').addEventListener('click', () => { idx = (idx + 1) % list.length; show(); });
+  $('#lbPrev').addEventListener('click', () => { idx = (idx - 1 + list.length) % list.length; show(); });
+  addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') close(); if (e.key === 'ArrowRight') $('#lbNext').click(); if (e.key === 'ArrowLeft') $('#lbPrev').click();
+  });
+  let tx = 0; lb.addEventListener('touchstart', e => tx = e.touches[0].clientX, { passive: true });
+  lb.addEventListener('touchend', e => { const d = e.changedTouches[0].clientX - tx; if (Math.abs(d) > 50) (d < 0 ? $('#lbNext') : $('#lbPrev')).click(); });
+
+  /* ---------- Vídeos: prévia muda no hover, som no clique ---------- */
+  const players = $$('.vp[data-video]');
+  const prime = vp => { const v = vp.querySelector('video'); if (!v.src) { v.poster = vp.dataset.poster; v.src = vp.dataset.video; v.preload = 'metadata'; } return v; };
+  // mostra os pôsteres cedo
+  const pIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const v = e.target.querySelector('video'); if (!v.poster) v.poster = e.target.dataset.poster; pIO.unobserve(e.target); } }), { rootMargin: '1200px 0px' });
+  players.forEach(vp => pIO.observe(vp));
+  let fullVp = null;
+  const stopFull = vp => { const v = vp.querySelector('video'); v.pause(); v.controls = false; v.muted = true; v.loop = true; vp.classList.remove('playing'); if (fullVp === vp) fullVp = null; };
+  const pauseOthers = keep => {
+    players.forEach(vp => { if (vp !== keep) { if (vp === fullVp) stopFull(vp); else vp.querySelector('video').pause(); } });
+    if (keep !== 'drink') { dv.pause(); }
+  };
+  players.forEach(vp => {
+    const v = vp.querySelector('video');
+    if (fine) {
+      vp.addEventListener('mouseenter', () => { if (fullVp !== vp) { prime(vp); v.muted = true; v.play().catch(() => {}); } });
+      vp.addEventListener('mouseleave', () => { if (fullVp !== vp) v.pause(); });
+    }
+    const hint = vp.querySelector('.hoverhint'); if (hint && !fine) hint.textContent = 'Toque para assistir';
+    vp.addEventListener('click', e => {
+      if (fullVp === vp) return;
+      e.preventDefault(); prime(vp); pauseOthers(vp);
+      fullVp = vp; v.muted = false; v.loop = false; v.controls = true; try { v.currentTime = 0; } catch (_) {}
+      vp.classList.add('playing'); v.play().catch(() => { v.muted = true; v.play().catch(() => {}); });
+    });
+    v.addEventListener('ended', () => stopFull(vp));
+  });
+  const offIO = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) { const vp = e.target; if (vp === fullVp) stopFull(vp); else vp.querySelector('video').pause(); } }), { threshold: 0.05 });
+  players.forEach(vp => offIO.observe(vp));
+
+  /* ---------- Carta de drinks ---------- */
+  const DR = window.__DRINKS__;
+  const dList = $('#drinkList'), dv = $('#drinkVideo'), dName = $('#drinkName'), dNum = $('#drinkNum'), dSnd = $('#drinkSnd');
+  let dIdx = 0, dLoaded = false, dSound = false;
+  const pad = n => String(n).padStart(2, '0');
+  DR.forEach((d, i) => {
+    const li = document.createElement('li'); const b = document.createElement('button'); b.type = 'button';
+    b.innerHTML = `<span class="n">${pad(i + 1)}</span><span class="d"></span>`; b.querySelector('.d').textContent = d.name;
+    b.addEventListener('click', () => { setDrink(i, true); });
+    if (fine) b.addEventListener('mouseenter', () => setDrink(i, true));
+    li.appendChild(b); dList.appendChild(li);
+  });
+  const dBtns = $$('button', dList);
+  function setDrink(i, play) {
+    if (i === dIdx && dLoaded) { if (play && dv.paused) dv.play().catch(() => {}); return; }
+    dIdx = i; dLoaded = true;
+    dBtns.forEach((b, j) => b.classList.toggle('on', j === i));
+    const d = DR[i]; dName.textContent = d.name; dNum.textContent = pad(i + 1) + ' / ' + pad(DR.length);
+    dv.poster = d.poster; dv.src = d.src; dv.muted = !dSound;
+    if (play) { pauseOthers('drink'); dv.play().catch(() => { dv.muted = true; dv.play().catch(() => {}); }); }
+    if (!fine) { const b = dBtns[i]; b.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' }); }
+  }
+  dBtns[0].classList.add('on'); dv.poster = DR[0].poster;
+  dSnd.addEventListener('click', () => {
+    dSound = !dSound; dv.muted = !dSound; dSnd.textContent = dSound ? 'Silenciar' : 'Ativar som';
+    if (!dLoaded) setDrink(0, true); else if (dv.paused) { pauseOthers('drink'); dv.play().catch(() => {}); }
+  });
+  $('#drinkVp').addEventListener('click', () => { if (!dLoaded) return setDrink(0, true); if (dv.paused) { pauseOthers('drink'); dv.play().catch(() => {}); } else dv.pause(); });
+  const phoneIO = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { if (!dLoaded) { dv.src = DR[dIdx].src; dLoaded = true; } if (!fullVp) dv.play().catch(() => {}); }
+    else dv.pause();
+  }), { threshold: 0.35 });
+  phoneIO.observe($('#phone'));
+})();
+</script>
+</body></html>
